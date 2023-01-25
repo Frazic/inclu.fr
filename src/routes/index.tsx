@@ -1,9 +1,9 @@
 import { $, component$, useSignal, useStyles$ } from '@builder.io/qwik';
 import type { DocumentHead } from '@builder.io/qwik-city';
-import { cp } from 'fs/promises';
-import { GearIcon } from '~/components/icons/gear';
 import { MenuBurgerIcon } from '~/components/icons/menu-burger';
+import { GearIcon } from '~/components/icons/gear';
 import { ResultBox } from '~/components/resultBox/resultBox';
+import { Waitlist } from '~/components/waitlist/waitlist';
 import styles from "./main.css?inline";
 
 export default component$(() => {
@@ -26,7 +26,7 @@ export default component$(() => {
         </div>
         <h1 id="title">INCLURE</h1>
       </header>
-      <div id="action" class={"flex"}>
+      {/* <div id="action" class={"flex"}>
         <form action="#" id="text-input-form" preventdefault:submit>
           <label for="text-input">
             <h3>Make inclusive:</h3>
@@ -42,7 +42,8 @@ export default component$(() => {
           </div>
           <ResultBox value={resultValue.value} />
         </form>
-      </div>
+      </div> */}
+      <Waitlist />
       <div id="about" class={"flex"}>
         <h3>About</h3>
         <p id="about-text">

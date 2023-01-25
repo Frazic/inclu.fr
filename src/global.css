@@ -104,7 +104,7 @@ a {
   color: inherit;
 }
 
-:is(button, textarea, a):is(:focus, :active) {
+:is(button, textarea, a, input):is(:focus, :active) {
   outline: 2px solid var(--c-p);
   outline-offset: 2px;
 }

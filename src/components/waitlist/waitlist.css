@@ -1,0 +1,34 @@
+@supports(-webkit-appearance: none) or (-moz-appearance: none) {
+    input[type='email'],
+    input[type='text'] {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+    }
+  }
+
+input:is([type="email"], [type="text"]) {
+    display: block;
+    width: 100%;
+    font-size: 0.8em;
+    background-color: var(--c-card-bg);
+    color: var(--c-card-text);
+    transition:
+        transform 0.05s ease-in,
+        box-shadow 0.05s ease-in;
+}
+
+input:is([type="email"], [type="text"]):is(:active, :focus) {
+    outline: none;
+    transform: translate(-4px, -4px);
+    box-shadow: 4px 4px 0px 0px black;
+}
+
+label {
+    display: inline;
+}
+
+button {
+    display: block;
+    padding: 0.5em;
+    margin-inline: auto;
+}
