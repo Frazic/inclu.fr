@@ -1,0 +1,51 @@
+.accordion-item {
+    background-color: var(--c-card-bg);
+    margin-bottom: 1rem;
+    border: 4px solid black;
+    box-shadow: 6px 6px 0 0 black;
+}
+
+.accordion-header {
+    background-color: var(--c-btn);
+    padding: 1rem;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.accordion-header h4 {
+    color: var(--c-btn-text);
+}
+
+.accordion-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+
+.accordion-answer.active {
+    max-height: 10em;
+}
+
+.accordion-answer p {
+    color: var(--c-card-text);
+    padding: 1rem;
+}
+
+i.fa-solid {
+    color: var(--c-btn-text);
+    font-size: 1.5em;
+    display: none;
+
+    transition: transform 0.5s ease;
+}
+
+i.fa-solid.active {
+    display: block;
+}
+
+.accordion-item:hover i.fa-solid.active {
+    transform: rotate(180deg);
+}

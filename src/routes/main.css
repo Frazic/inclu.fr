@@ -23,6 +23,12 @@ h3 {
     font-size: clamp(1.25rem, 1rem + 0.5vw, 2rem);
 }
 
+h4 {
+    font-size: clamp(1rem, 1rem + 0.25vw, 2rem);
+}
+
+/* HEADER */
+
 header {
     display: flex;
     flex-direction: column;
@@ -41,7 +47,7 @@ div {
     font-size: clamp(12px, 10px + 1vw, 20px);
 }
 
- div.flex{
+div.flex{
     display: flex;
     flex-direction: column;
     justify-content: stretch;
@@ -49,12 +55,13 @@ div {
     gap: 0.5rem;
 }
 
+/* MAIN ACTION */
+
 textarea {
     background-color: var(--c-card-bg);
     color: var(--c-card-text);
     font-size: 0.8em;
     overflow: auto;
-    width: 100%;
     padding: 1rem;
 }
 

@@ -5,6 +5,7 @@ import { GearIcon } from '~/components/icons/gear';
 import { ResultBox } from '~/components/resultBox/resultBox';
 import { Waitlist } from '~/components/waitlist/waitlist';
 import styles from "./main.css?inline";
+import { Accordion } from '~/components/accordion/accordion';
 
 export default component$(() => {
   useStyles$(styles);
@@ -53,8 +54,7 @@ export default component$(() => {
       </div>
       <div id="pricing" class={"flex"}>
         <h3>Pricing</h3>
-        <div class="accordion"></div>
-        <div class="accordion"></div>
+        <Accordion />
       </div>
     </section>
   </>);
