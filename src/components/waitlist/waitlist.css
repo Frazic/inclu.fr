@@ -1,5 +1,6 @@
 @supports(-webkit-appearance: none) or (-moz-appearance: none) {
     input[type='email'],
+    input[type='checkbox'],
     input[type='text'] {
       -webkit-appearance: none;
       -moz-appearance: none;
@@ -15,20 +16,41 @@ input:is([type="email"], [type="text"]) {
     transition:
         transform 0.05s ease-in,
         box-shadow 0.05s ease-in;
+    margin-bottom: 1em;
 }
 
-input:is([type="email"], [type="text"]):is(:active, :focus) {
+input:is(:hover, :active, :focus) {
     outline: none;
     transform: translate(-4px, -4px);
     box-shadow: 4px 4px 0px 0px black;
 }
 
-label {
-    display: inline;
+input[type="checkbox"] {
+    background-color: var(--c-card-bg);
+    color: var(--c-card-text);
+    vertical-align: sub;
+    width: 1.2em;
+    border: 2px solid black;
+    aspect-ratio: 1;
+}
+
+input[type="checkbox"]:checked {
+    background-color: var(--c-p);
+    position: relative;
+}
+
+input[type="checkbox"]:checked::after {
+    position: absolute;
+    content:"✔";
+    font-size: 1em;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 button {
     display: block;
     padding: 0.5em;
     margin-inline: auto;
+    margin-top: 1em;
 }

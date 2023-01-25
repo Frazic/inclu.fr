@@ -24,6 +24,7 @@ export const Waitlist = component$(() => {
 
                 <input name="donate" id="checkbox-donate" type="checkbox" />
                 <label for="donate"> Optional: Pay $5 once and receive a 6 month Pro plan upon launch</label>
+
                 <button role={"button"} type="submit" onClick$={submit}>Join</button>
             </form>
         </div>
