@@ -1,8 +1,9 @@
-import { $, component$, useSignal, useStyles$ } from '@builder.io/qwik';
+import { component$, useStyles$ } from '@builder.io/qwik';
+// import { $, useSignal } from '@builder.io/qwik';
 import type { DocumentHead } from '@builder.io/qwik-city';
 import { MenuBurgerIcon } from '~/components/icons/menu-burger';
-import { GearIcon } from '~/components/icons/gear';
-import { ResultBox } from '~/components/resultBox/resultBox';
+// import { GearIcon } from '~/components/icons/gear';
+// import { ResultBox } from '~/components/resultBox/resultBox';
 import { Waitlist } from '~/components/waitlist/waitlist';
 import styles from "./main.css?inline";
 import { Accordion } from '~/components/accordion/accordion';
@@ -10,14 +11,14 @@ import { Accordion } from '~/components/accordion/accordion';
 export default component$(() => {
   useStyles$(styles);
 
-  const resultValue = useSignal<string>("");
+  // const resultValue = useSignal<string>("");
 
-  const setResultValue = $(() => {
-    const textInput = document.getElementById("text-input") as HTMLTextAreaElement | null;
-    if (!textInput) return;
-    console.log(textInput.value)
-    resultValue.value = textInput.value;
-  })
+  // const setResultValue = $(() => {
+  //   const textInput = document.getElementById("text-input") as HTMLTextAreaElement | null;
+  //   if (!textInput) return;
+  //   console.log(textInput.value)
+  //   resultValue.value = textInput.value;
+  // })
 
   return (<>
     <section id="main">

@@ -1,4 +1,4 @@
-import { $, component$, useSignal, useStylesScoped$ } from "@builder.io/qwik";
+import { component$, useSignal, useStylesScoped$ } from "@builder.io/qwik";
 import styles from "./accordion.css?inline";
 
 export const Accordion = component$(() => {
