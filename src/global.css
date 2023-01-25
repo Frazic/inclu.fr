@@ -1,3 +1,30 @@
+:root {
+  --c-p: #B8C1EC;
+  --c-btn: #EEBBC3;
+  --c-btn-text: #232946;
+  --c-card-bg: #FFFFFE;
+  --c-card-text: #232946;
+  --c-headline: #FFFFFE;
+  --c-bg: #232946;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --c-p: #232946;
+    --c-btn: #EEBBC3;
+    --c-btn-text: #232946;
+    --c-card-bg: #B8C1EC;
+    --c-card-text: #232946;
+    --c-headline: #232946;
+    --c-bg: #FFFFFE;
+  }
+}
+
+@font-face {
+  font-family: "OpenDyslexicMono";
+  src: url("/OpenDyslexicMono-Regular.otf");
+}
+
 /* makes sizing simpler */
 *,
 *::before,
@@ -24,12 +51,9 @@ html {
 body {
   min-height: 100vh;
   overflow-x: hidden;
-}
 
-@media (prefers-color-scheme: light) {
-  /* body {
-    background-color: var(--light-bg-colour);
-  } */
+  background-color: var(--c-bg);
+  font-family: "OpenDyslexicMono";
 }
 
 /* responsive images/videos */
@@ -42,8 +66,39 @@ video {
 }
 
 button {
-  border: none;
   padding: 0;
   cursor: pointer;
   outline: inherit;
+
+  background-color: var(--c-btn);
+  color: var(--c-btn-text);
+  border: 2px solid black;
+  box-shadow: 4px 4px 0px 0px black;
+
+  transition:
+    transform 0.025s ease-in,
+    box-shadow 0.025s ease-in;
+}
+
+button:hover {
+  background-color: var(--c-p);
+}
+
+button:active {
+  transform: translate(4px, 4px);
+  box-shadow: unset;
+}
+
+p {
+  color: var(--c-p);
+  text-align: justify;
+}
+
+:is(h1, h2, h3, h4, h5, h6) {
+  color: var(--c-headline);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
