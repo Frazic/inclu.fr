@@ -88,3 +88,22 @@ div#options svg{
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+@media screen and (min-width: 150ch) {
+    section#main {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        max-width: 120ch;
+    }
+
+    header {
+        grid-column: 1 / -1;
+        grid-row: 1;
+        width: 100%;
+    }
+
+    div#pricing {
+        grid-column: 1 / -1;
+        grid-row: 3;
+    }
+}

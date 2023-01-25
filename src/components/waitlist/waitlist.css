@@ -20,7 +20,7 @@ input:is([type="email"], [type="text"]) {
 }
 
 input:is(:hover, :active, :focus) {
-    outline: none;
+    /* outline: none; */
     transform: translate(-4px, -4px);
     box-shadow: 4px 4px 0px 0px black;
 }
