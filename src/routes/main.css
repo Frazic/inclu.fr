@@ -21,7 +21,6 @@ h1 {
 
 h3 {
     font-size: clamp(1.25rem, 1rem + 0.5vw, 2rem);
-    margin-bottom: -0.5em;
 }
 
 header {
@@ -50,7 +49,14 @@ div {
     gap: 0.5rem;
 }
 
-/* TODO INPUT STYLING */
+textarea {
+    background-color: var(--c-card-bg);
+    color: var(--c-card-text);
+    font-size: 0.8em;
+    overflow: auto;
+    width: 100%;
+    padding: 1rem;
+}
 
 div#input-buttons {
     position: relative;

@@ -1,11 +1,23 @@
-import { component$, useStyles$ } from '@builder.io/qwik';
+import { $, component$, useSignal, useStyles$ } from '@builder.io/qwik';
 import type { DocumentHead } from '@builder.io/qwik-city';
+import { cp } from 'fs/promises';
 import { GearIcon } from '~/components/icons/gear';
 import { MenuBurgerIcon } from '~/components/icons/menu-burger';
+import { ResultBox } from '~/components/resultBox/resultBox';
 import styles from "./main.css?inline";
 
 export default component$(() => {
   useStyles$(styles);
+
+  const resultValue = useSignal<string>("");
+
+  const setResultValue = $(() => {
+    const textInput = document.getElementById("text-input") as HTMLTextAreaElement | null;
+    if (!textInput) return;
+    console.log(textInput.value)
+    resultValue.value = textInput.value;
+  })
+
   return (<>
     <section id="main">
       <header>
@@ -15,19 +27,26 @@ export default component$(() => {
         <h1 id="title">INCLURE</h1>
       </header>
       <div id="action" class={"flex"}>
-        <h3>Make inclusive</h3>
-        <input type="text" id="text-input" />
-        <div id="input-buttons">
-          <button id="go" role="button">GO</button>
-          <div id="options" role="button">
-            <GearIcon />
+        <form action="#" id="text-input-form" preventdefault:submit>
+          <label for="text-input">
+            <h3>Make inclusive:</h3>
+          </label>
+          <textarea name="text-input" id="text-input" cols={30} rows={10} about="Text input to be made inclusive" placeholder="L'Homme de Néanderthal" aria-label="text-input"
+          />
+          <div id="input-buttons">
+            <button id="go" role="button" type="submit"
+              onClick$={setResultValue}>GO</button>
+            <div id="options" role="button">
+              <GearIcon />
+            </div>
           </div>
-        </div>
+          <ResultBox value={resultValue.value} />
+        </form>
       </div>
       <div id="about" class={"flex"}>
         <h3>About</h3>
         <p id="about-text">
-          We believe that doing our best to include everyone is crucial in today's society. This tool will help you do that thanks to the power of AI! Just input your text and hit 'GO' and it'll do its best to transform it so that no one is excluded or forgotten.
+          We believe that doing our best to include everyone is crucial in today's society. This tool will help you do that thanks to the power of AI! Just input your text, hit 'GO' and it'll do its best to transform it so that no one is excluded or forgotten.
         </p>
         <p>You may have also noticed the special font: <a href="https://opendyslexic.org/">OpenDyslexic</a></p>
       </div>
