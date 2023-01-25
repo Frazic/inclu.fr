@@ -1,0 +1,49 @@
+/* makes sizing simpler */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* remove default spacing */
+/* force styling of type through styling, rather than elements */
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+/* dark mode user-agent-styles */
+html {
+  color-scheme: dark light;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* min body height */
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+@media (prefers-color-scheme: light) {
+  /* body {
+    background-color: var(--light-bg-colour);
+  } */
+}
+
+/* responsive images/videos */
+img,
+picture,
+svg,
+video {
+  display: inline-block;
+  max-width: 100%;
+}
+
+button {
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: inherit;
+}
