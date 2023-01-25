@@ -14,7 +14,13 @@ export const Accordion = component$(() => {
                     <i class={`fa-solid fa-minus ${activeItem.value[0] ? " active" : ""}`}></i>
                 </div>
                 <div class={`accordion-answer ${activeItem.value[0] ? " active" : ""}`}>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor ab, dolores temporibus fuga atque odit, corrupti ea incidunt magni voluptatibus aliquid omnis, beatae unde repudiandae adipisci delectus labore harum error.</p>
+                    <ul>
+                        <li>Cool feature 1</li>
+                        <li>Cool feature 2</li>
+                        <li>Cool feature 3</li>
+                        <li>Cool feature 4</li>
+                        <li>Cool feature 5</li>
+                    </ul>
                 </div>
             </div>
             <div class="accordion-item">
@@ -24,7 +30,13 @@ export const Accordion = component$(() => {
                     <i class={`fa-solid fa-minus ${activeItem.value[1] ? " active" : ""}`}></i>
                 </div>
                 <div class={`accordion-answer ${activeItem.value[1] ? " active" : ""}`}>
-                    <p>Quos fugiat animi recusandae aperiam error vitae, facilis, a quo eos expedita voluptate labore ipsum dolor dolorum repellendus soluta temporibus rerum omnis perspiciatis, unde numquam velit cupiditate incidunt! Eos, voluptas.</p>
+                    <ul>
+                        <li>Cool feature 1</li>
+                        <li>Cool feature 2</li>
+                        <li>Cool feature 3</li>
+                        <li>Cool feature 4</li>
+                        <li>Cool feature 5</li>
+                    </ul>
                 </div>
             </div>
         </div>

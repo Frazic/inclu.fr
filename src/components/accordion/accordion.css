@@ -1,8 +1,14 @@
+.accordion {
+    display: block;
+}
+
 .accordion-item {
     background-color: var(--c-card-bg);
     margin-bottom: 1rem;
     border: 4px solid black;
     box-shadow: 6px 6px 0 0 black;
+
+    --transition: 0.5s;
 }
 
 .accordion-header {
@@ -19,33 +25,49 @@
     color: var(--c-btn-text);
 }
 
-.accordion-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease;
-}
-
-.accordion-answer.active {
-    max-height: 10em;
-}
-
-.accordion-answer p {
-    color: var(--c-card-text);
-    padding: 1rem;
-}
-
 i.fa-solid {
     color: var(--c-btn-text);
     font-size: 1.5em;
     display: none;
 
-    transition: transform 0.5s ease;
+    transition: transform var(--transition) ease;
 }
 
 i.fa-solid.active {
     display: block;
 }
 
-.accordion-item:hover i.fa-solid.active {
-    transform: rotate(180deg);
+.accordion-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition) ease;
+    color: var(--c-card-text);
+}
+
+.accordion-answer.active {
+    max-height: 20em;
+}
+
+.accordion-answer ul {
+    padding: 1rem;
+    list-style-type: none;
+}
+
+.accordion-answer li::before {
+    content: "+ ";
+}
+
+@media screen and (min-width: 150ch) {
+    .accordion {
+        display: flex;
+        gap: 2rem;
+    }
+
+    .accordion-answer {
+        max-height: max-content;
+    }
+
+    i:is(.fa-solid, .fa-solid.active) {
+        display: none;
+    }
 }
