@@ -63,6 +63,10 @@ i.fa-solid.active {
         gap: 2rem;
     }
 
+    .accordion-header {
+        cursor: revert;
+    }
+
     .accordion-answer {
         max-height: max-content;
     }

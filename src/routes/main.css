@@ -112,6 +112,5 @@ div#options svg{
     div#pricing {
         grid-column: 1 / -1;
         grid-row: 3;
-        width: 100%;
     }
 }
