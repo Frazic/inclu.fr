@@ -19,9 +19,9 @@ This is still a WIP and is NOT deployed to production yet.
 
 ### MVP
 
-- [ ] Register waitlist joins in supabase
+- [x] Register waitlist joins in supabase
+- [x] On join check if email already in DB
 - [ ] Setup optional pay
-- [ ] On join check if email already in DB
 - [ ] Plan features
 - [ ] Deploy
 
