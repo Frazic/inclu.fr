@@ -1,8 +1,10 @@
 :root {
   --c-p: #B8C1EC;
   --c-btn: #EEBBC3;
+  --c-btn-hover: #B8C1EC;
   --c-btn-text: #232946;
   --c-card-bg: #FFFFFE;
+  --c-card-hover: #B8C1EC;
   --c-card-text: #232946;
   --c-headline: #FFFFFE;
   --c-bg: #232946;
@@ -12,8 +14,10 @@
   :root {
     --c-p: #232946;
     --c-btn: #EEBBC3;
+    --c-btn-hover: #B8C1EC;
     --c-btn-text: #232946;
     --c-card-bg: #B8C1EC;
+    --c-card-hover: #FFFFFE;
     --c-card-text: #232946;
     --c-headline: #232946;
     --c-bg: #FFFFFE;
@@ -82,7 +86,7 @@ button {
 }
 
 button:hover {
-  background-color: var(--c-p);
+  background-color: var(--c-btn-hover);
 }
 
 button:active {
