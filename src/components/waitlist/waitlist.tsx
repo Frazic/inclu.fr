@@ -74,7 +74,7 @@ export const Waitlist = component$<WaitlistProps>((props) => {
                 <input type={"email"} name="email" id="email" contentEditable="true" required />
 
                 <input name="donate" id="checkbox-donate" type="checkbox" />
-                <label for="donate"> Optional: Pay $5 once and receive a 6 month Pro plan at launch</label>
+                <label for="donate"> Optional: Donate now and receive a 6 month Pro plan at launch</label>
 
                 <button role={"button"} type="submit">Join</button>
             </form>
