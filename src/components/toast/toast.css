@@ -61,3 +61,9 @@
     grid-row: 2;
     grid-column: 1 / -1;
 }
+
+@media screen and (max-width: 150ch) {
+    .toast-container {
+        width: 90%;
+    }
+}

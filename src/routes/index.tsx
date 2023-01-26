@@ -1,7 +1,7 @@
 import { component$, useStore, useStyles$ } from '@builder.io/qwik';
 // import { $, useSignal } from '@builder.io/qwik';
 import type { DocumentHead } from '@builder.io/qwik-city';
-import { MenuBurgerIcon } from '~/components/icons/menu-burger';
+// import { MenuBurgerIcon } from '~/components/icons/menu-burger';
 // import { GearIcon } from '~/components/icons/gear';
 // import { ResultBox } from '~/components/resultBox/resultBox';
 import { Waitlist } from '~/components/waitlist/waitlist';
@@ -32,9 +32,9 @@ export default component$(() => {
   return (<>
     <section id="main">
       <header>
-        <div id="menu-btn" class={"flex"} role="button">
+        {/* <div id="menu-btn" class={"flex"} role="button">
           <MenuBurgerIcon />
-        </div>
+        </div> */}
         <h1 id="title">INCLURE</h1>
       </header>
       {/* <div id="action" class={"flex"}>

@@ -29,13 +29,13 @@ export const Waitlist = component$<WaitlistProps>((props) => {
 
         // FOR TESTING PURPOSES
         // TODO REMOVE
-        if (Math.random() > 0.5) {
-            props.success$();
-            const form = document.getElementById("waitlist-form") as HTMLFormElement;
-            form?.reset();
-        } else {
-            props.error$("Error message");
-        }
+        props.error$("Error message");
+        // if (Math.random() > 0.5) {
+        //     props.success$();
+        //     const form = document.getElementById("waitlist-form") as HTMLFormElement;
+        //     form?.reset();
+        // } else {
+        // }
 
         // emailjs.send("service_de9mf33", "template_wugxd3j", templateParams)
         //     .then(function (response) {

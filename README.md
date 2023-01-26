@@ -15,6 +15,19 @@ This is still a WIP and is NOT deployed to production yet.
 - [ ] QA
 - [ ] Production
 
+## TODO
+
+### MVP
+
+- [ ] Register waitlist joins in supabase
+- [ ] On join check if email already in DB
+- [ ] Setup optional pay
+
+### Final product
+
+- [ ] Restrict free use to a certain amount. IP? Cookies? Something else?
+- [ ] Pro membership create account
+
 ## About
 
 We believe that making our best efforts to include everyone is crucial in today's society. That's why we've created this website that uses AI to transform any text of yours into a more inclusive version. You can use this to update old texts or to double check you've forgotten no one in your own text!
