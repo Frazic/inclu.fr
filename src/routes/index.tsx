@@ -1,4 +1,4 @@
-import { component$, useStyles$ } from '@builder.io/qwik';
+import { component$, useStore, useStyles$ } from '@builder.io/qwik';
 // import { $, useSignal } from '@builder.io/qwik';
 import type { DocumentHead } from '@builder.io/qwik-city';
 import { MenuBurgerIcon } from '~/components/icons/menu-burger';
@@ -7,6 +7,7 @@ import { MenuBurgerIcon } from '~/components/icons/menu-burger';
 import { Waitlist } from '~/components/waitlist/waitlist';
 import styles from "./main.css?inline";
 import { Accordion } from '~/components/accordion/accordion';
+import { Toast, ToastProps, ToastStore } from '~/components/toast/toast';
 
 export default component$(() => {
   useStyles$(styles);
@@ -19,6 +20,13 @@ export default component$(() => {
   //   console.log(textInput.value)
   //   resultValue.value = textInput.value;
   // })
+
+  const toastStore = useStore<ToastStore>({
+    title: "",
+    message: "",
+    type: "error",
+    active: false
+  })
 
   return (<>
     <section id="main">
@@ -46,6 +54,8 @@ export default component$(() => {
         </form>
       </div> */}
       <Waitlist />
+      <button onClick$={() => { toastStore.title = "Success"; toastStore.message = "You have joined the waitlist"; toastStore.type = "sucess"; toastStore.active = true }}>HEY</button>
+      <button onClick$={() => { toastStore.title = "Success"; toastStore.message = "You have joined the waitlist"; toastStore.type = "error"; toastStore.active = true }}>HEY</button>
       <div id="about" class={"flex"}>
         <h3>About</h3>
         <p id="about-text">
@@ -57,6 +67,7 @@ export default component$(() => {
         <h3>Pricing</h3>
         <Accordion />
       </div>
+      <Toast store={toastStore} />
     </section>
   </>);
 });

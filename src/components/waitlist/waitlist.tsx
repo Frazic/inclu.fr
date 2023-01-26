@@ -29,6 +29,9 @@ export const Waitlist = component$(() => {
             });
     })
 
+    // TODO Add toast on sucess/failure
+    // TODO Refresh after join
+
     useClientEffect$(() => {
         emailjs.init("HMv3N68qZ2Rn62K0m")
     })
