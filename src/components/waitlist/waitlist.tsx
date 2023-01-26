@@ -28,8 +28,11 @@ export const Waitlist = component$<WaitlistProps>((props) => {
         }
 
         // FOR TESTING PURPOSES
+        // TODO REMOVE
         if (Math.random() > 0.5) {
             props.success$();
+            const form = document.getElementById("waitlist-form") as HTMLFormElement;
+            form?.reset();
         } else {
             props.error$("Error message");
         }
@@ -44,15 +47,13 @@ export const Waitlist = component$<WaitlistProps>((props) => {
         //     });
     })
 
-    // TODO Refresh after join
-
     useClientEffect$(() => {
         emailjs.init("HMv3N68qZ2Rn62K0m")
     })
 
     return (
         <div id="waitlist">
-            <form onSubmit$={submit} preventdefault:submit>
+            <form onSubmit$={submit} id="waitlist-form" preventdefault:submit>
                 <h3>Join our waitlist</h3>
                 <label for="name">Name</label>
                 <input type={"text"} name="name" id="name" contentEditable="true" required />
