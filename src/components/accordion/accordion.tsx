@@ -26,6 +26,7 @@ export const Accordion = component$(() => {
             <div class="accordion-item">
                 <div class="accordion-header" onClick$={() => activeItem.value = [false, !activeItem.value[1]]}>
                     <h4>Pro</h4>
+                    <h4>$5/mo</h4>
                     <i class={`fa-solid fa-plus ${!activeItem.value[1] ? " active" : ""}`}></i>
                     <i class={`fa-solid fa-minus ${activeItem.value[1] ? " active" : ""}`}></i>
                 </div>

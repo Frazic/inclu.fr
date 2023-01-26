@@ -20,13 +20,15 @@ This is still a WIP and is NOT deployed to production yet.
 ### MVP
 
 - [ ] Register waitlist joins in supabase
-- [ ] On join check if email already in DB
 - [ ] Setup optional pay
+- [ ] On join check if email already in DB
+- [ ] Plan features
+- [ ] Deploy
 
 ### Final product
 
 - [ ] Restrict free use to a certain amount. IP? Cookies? Something else?
-- [ ] Pro membership create account
+- [ ] Pro membership (DB, in app effects, billing)
 
 ## About
 
