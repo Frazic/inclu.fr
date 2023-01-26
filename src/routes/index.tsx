@@ -7,7 +7,8 @@ import { MenuBurgerIcon } from '~/components/icons/menu-burger';
 import { Waitlist } from '~/components/waitlist/waitlist';
 import styles from "./main.css?inline";
 import { Accordion } from '~/components/accordion/accordion';
-import { Toast, ToastProps, ToastStore } from '~/components/toast/toast';
+import type { ToastStore } from '~/components/toast/toast';
+import { Toast } from '~/components/toast/toast';
 
 export default component$(() => {
   useStyles$(styles);
@@ -53,9 +54,10 @@ export default component$(() => {
           <ResultBox value={resultValue.value} />
         </form>
       </div> */}
-      <Waitlist />
-      <button onClick$={() => { toastStore.title = "Success"; toastStore.message = "You have joined the waitlist"; toastStore.type = "sucess"; toastStore.active = true }}>HEY</button>
-      <button onClick$={() => { toastStore.title = "Success"; toastStore.message = "You have joined the waitlist"; toastStore.type = "error"; toastStore.active = true }}>HEY</button>
+      <Waitlist
+        success$={() => { toastStore.title = "Success"; toastStore.message = "You have joined the waitlist"; toastStore.type = "sucess"; toastStore.active = true }}
+        error$={(error: string) => { toastStore.title = "Error"; toastStore.message = `Something went wrong: ${error}`; toastStore.type = "error"; toastStore.active = true }}
+      />
       <div id="about" class={"flex"}>
         <h3>About</h3>
         <p id="about-text">

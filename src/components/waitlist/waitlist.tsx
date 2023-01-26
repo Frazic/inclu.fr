@@ -1,8 +1,14 @@
+import type { PropFunction } from "@builder.io/qwik";
 import { $, component$, useClientEffect$, useStylesScoped$ } from "@builder.io/qwik";
 import emailjs from "@emailjs/browser";
 import styles from "./waitlist.css?inline";
 
-export const Waitlist = component$(() => {
+export interface WaitlistProps {
+    success$: PropFunction<() => void>,
+    error$: PropFunction<(error: string) => void>,
+}
+
+export const Waitlist = component$<WaitlistProps>((props) => {
     useStylesScoped$(styles);
 
     const submit = $(() => {
@@ -21,15 +27,23 @@ export const Waitlist = component$(() => {
             user_donated: donated
         }
 
-        emailjs.send("service_de9mf33", "template_wugxd3j", templateParams)
-            .then(function (response) {
-                console.log('SUCCESS!', response.status, response.text);
-            }, function (error) {
-                console.log('FAILED...', error);
-            });
+        // FOR TESTING PURPOSES
+        if (Math.random() > 0.5) {
+            props.success$();
+        } else {
+            props.error$("Error message");
+        }
+
+        // emailjs.send("service_de9mf33", "template_wugxd3j", templateParams)
+        //     .then(function (response) {
+        //         console.log('SUCCESS!', response.status, response.text);
+        //         props.success$();
+        //     }, function (error) {
+        //         console.log('FAILED...', error);
+        //         props.error$();
+        //     });
     })
 
-    // TODO Add toast on sucess/failure
     // TODO Refresh after join
 
     useClientEffect$(() => {

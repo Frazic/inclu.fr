@@ -1,4 +1,4 @@
-import { $, component$, useClientEffect$, useSignal, useStore, useStylesScoped$ } from "@builder.io/qwik";
+import { $, component$, useClientEffect$, useStylesScoped$ } from "@builder.io/qwik";
 import styles from "./toast.css?inline";
 
 export interface ToastStore {
