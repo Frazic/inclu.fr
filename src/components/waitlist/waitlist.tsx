@@ -1,6 +1,7 @@
 import type { PropFunction } from "@builder.io/qwik";
 import { $, component$, useClientEffect$, useStylesScoped$ } from "@builder.io/qwik";
 import emailjs from "@emailjs/browser";
+import { supabase } from "../supabase/supabase";
 import styles from "./waitlist.css?inline";
 
 export interface WaitlistProps {
@@ -11,7 +12,7 @@ export interface WaitlistProps {
 export const Waitlist = component$<WaitlistProps>((props) => {
     useStylesScoped$(styles);
 
-    const submit = $(() => {
+    const submit = $(async () => {
         const nameElement = document.getElementById("name") as HTMLInputElement | null;
         const emailElement = document.getElementById("email") as HTMLInputElement | null;
         const donateCheck = document.getElementById("checkbox-donate") as HTMLInputElement | null;
@@ -27,24 +28,35 @@ export const Waitlist = component$<WaitlistProps>((props) => {
             user_donated: donated
         }
 
-        // FOR TESTING PURPOSES
-        // TODO REMOVE
-        props.error$("Error message");
-        // if (Math.random() > 0.5) {
-        //     props.success$();
-        //     const form = document.getElementById("waitlist-form") as HTMLFormElement;
-        //     form?.reset();
-        // } else {
-        // }
+        // SUPABASE
+        const { error } = await supabase
+            .from("waitlist")
+            .insert([{
+                name: name,
+                email: email,
+                paid: donated
+            }])
 
-        // emailjs.send("service_de9mf33", "template_wugxd3j", templateParams)
-        //     .then(function (response) {
-        //         console.log('SUCCESS!', response.status, response.text);
-        //         props.success$();
-        //     }, function (error) {
-        //         console.log('FAILED...', error);
-        //         props.error$();
-        //     });
+        // Check for supabase error
+        if (error) {
+            console.log(error)
+            if (error.code == "23505") {
+                props.error$("Email already registered")
+            } else {
+                props.error$(error.message);
+            }
+            return;
+        }
+
+        // Send email to myself
+        emailjs.send("service_de9mf33", "template_wugxd3j", templateParams)
+            .then(function (response) {
+                console.log('SUCCESS!', response.status, response.text);
+                props.success$();
+            }, function (error) {
+                console.log('FAILED...', error);
+                props.error$(error);
+            });
     })
 
     useClientEffect$(() => {

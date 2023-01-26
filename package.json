@@ -38,6 +38,8 @@
     "vite-tsconfig-paths": "3.5.0"
   },
   "dependencies": {
-    "@emailjs/browser": "^3.10.0"
+    "@emailjs/browser": "^3.10.0",
+    "@supabase/supabase-js": "^2.4.1",
+    "dotenv": "^16.0.3"
   }
 }
