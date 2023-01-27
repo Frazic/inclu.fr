@@ -1,8 +1,6 @@
 import type { PropFunction } from "@builder.io/qwik";
 import { $, component$, useClientEffect$, useStylesScoped$ } from "@builder.io/qwik";
 import emailjs from "@emailjs/browser";
-import { cp } from "fs/promises";
-import { supabase } from "../supabase/supabase";
 import styles from "./waitlist.css?inline";
 
 export interface WaitlistProps {
@@ -23,13 +21,7 @@ export const Waitlist = component$<WaitlistProps>((props) => {
         const email = emailElement.value;
         const donated = donateCheck.checked;
 
-        const templateParams = {
-            user_name: name,
-            user_email: email,
-            user_donated: donated
-        }
-
-        fetch("http://localhost:9333/join", {
+        fetch(`${import.meta.env.VITE_SERVER_URL}/join`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -58,6 +50,13 @@ export const Waitlist = component$<WaitlistProps>((props) => {
                 props.success$();
             }
         })
+
+
+        // const templateParams = {
+        //     user_name: name,
+        //     user_email: email,
+        //     user_donated: donated
+        // }
 
         // Send email to myself
         // emailjs.send("service_de9mf33", "template_wugxd3j", templateParams)
