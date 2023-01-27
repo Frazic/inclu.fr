@@ -46,6 +46,10 @@ export const Waitlist = component$<WaitlistProps>((props) => {
                 props.error$(body.error)
             }
             else {
+                // Redirect to stripe url
+                if (body.url) {
+                    window.location = body.url;
+                }
                 console.info("Success: Waitlist registration complete");
                 props.success$();
             }

@@ -21,7 +21,10 @@ This is still a WIP and is NOT deployed to production yet.
 
 - [x] Register waitlist joins in supabase
 - [x] On join check if email already in DB
-- [ ] Setup optional pay
+- [x] Setup optional pay
+- [x] Email users that joined
+- [ ] Logs
+- [ ] Include server in git
 - [ ] Plan features
 - [ ] Deploy
 
