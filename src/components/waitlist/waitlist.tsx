@@ -1,6 +1,7 @@
 import type { PropFunction } from "@builder.io/qwik";
 import { $, component$, useClientEffect$, useStylesScoped$ } from "@builder.io/qwik";
 import emailjs from "@emailjs/browser";
+import { cp } from "fs/promises";
 import { supabase } from "../supabase/supabase";
 import styles from "./waitlist.css?inline";
 
@@ -28,35 +29,45 @@ export const Waitlist = component$<WaitlistProps>((props) => {
             user_donated: donated
         }
 
-        // SUPABASE
-        const { error } = await supabase
-            .from("waitlist")
-            .insert([{
-                name: name,
-                email: email,
-                paid: donated
-            }])
-
-        // Check for supabase error
-        if (error) {
-            console.log(error)
-            if (error.code == "23505") {
-                props.error$("Email already registered")
-            } else {
-                props.error$(error.message);
+        fetch("http://localhost:9333/join", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                test: 0,
+                user_info: {
+                    name: name,
+                    email: email,
+                    donated: donated
+                }
+            })
+        }).then(res => {
+            try {
+                return res.json();
+            } catch (error) {
+                return res.json().then(json => Promise.reject(json));
             }
-            return;
-        }
+        }).then((body) => {
+            if (body.error) {
+                console.error(body.error)
+                props.error$(body.error)
+            }
+            else {
+                console.info("Success: Waitlist registration complete");
+                props.success$();
+            }
+        })
 
         // Send email to myself
-        emailjs.send("service_de9mf33", "template_wugxd3j", templateParams)
-            .then(function (response) {
-                console.log('SUCCESS!', response.status, response.text);
-                props.success$();
-            }, function (error) {
-                console.log('FAILED...', error);
-                props.error$(error);
-            });
+        // emailjs.send("service_de9mf33", "template_wugxd3j", templateParams)
+        //     .then(function (response) {
+        //         console.log('SUCCESS!', response.status, response.text);
+        //         props.success$();
+        //     }, function (error) {
+        //         console.log('FAILED...', error);
+        //         props.error$(error);
+        //     });
     })
 
     useClientEffect$(() => {

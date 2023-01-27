@@ -55,8 +55,8 @@ export default component$(() => {
         </form>
       </div> */}
       <Waitlist
-        success$={() => { toastStore.title = "Success"; toastStore.message = "You have joined the waitlist"; toastStore.type = "sucess"; toastStore.active = true }}
-        error$={(error: string) => { toastStore.title = "Error"; toastStore.message = `Something went wrong: ${error}`; toastStore.type = "error"; toastStore.active = true }}
+        success$={() => { toastStore.title = "Success"; toastStore.message = "Thanks for joining the waitlist!"; toastStore.type = "sucess"; toastStore.active = true }}
+        error$={(error: string) => { toastStore.title = "Error"; toastStore.message = `${error}`; toastStore.type = "error"; toastStore.active = true }}
       />
       <div id="about" class={"flex"}>
         <h3>About</h3>

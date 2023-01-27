@@ -21,7 +21,7 @@ export const Toast = component$<ToastProps>((props) => {
             props.store.title = "";
             props.store.message = "";
             props.store.type = "error";
-        }, 500);
+        }, 400);
     })
 
     useClientEffect$(({ track }) => {
