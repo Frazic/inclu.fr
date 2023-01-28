@@ -253,7 +253,6 @@ function insertNewUser(userInfo) {
                         subject: "Merci d'avoir rejoint la liste d'attente Inclure.net!",
                         text: text
                     };
-                    // TODO REMOVE AFTER TESTING
                     transporter.sendMail(mailOptions, function (error, info) {
                         if (error) {
                             logger.error("".concat(stringifyUserInfo(userInfo), ": Error sending email: ").concat(error));

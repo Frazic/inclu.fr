@@ -24,13 +24,13 @@ This is still a WIP and is NOT deployed to production yet.
 - [x] Setup optional pay
 - [x] Email users that joined
 - [x] Logs
-- [ ] Include server in git
-- [ ] Plan features
-- [ ] Show some examples
-- [ ] Translate to French
-- [ ] Have a disclaimer
-- [ ] Have a Contact link
-- [ ] Remove all test values and clear todos
+- [x] Include server in git
+- [x] Plan features
+- [x] Show some examples
+- [x] Translate to French
+- [x] Have a disclaimer
+- [x] Have a Contact link
+- [x] Remove all test values and clear todos
 - [ ] Deploy
 
 ### Final product
