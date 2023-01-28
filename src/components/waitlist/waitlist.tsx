@@ -1,6 +1,5 @@
 import type { PropFunction } from "@builder.io/qwik";
-import { $, component$, useClientEffect$, useStylesScoped$ } from "@builder.io/qwik";
-import emailjs from "@emailjs/browser";
+import { $, component$, useStylesScoped$ } from "@builder.io/qwik";
 import styles from "./waitlist.css?inline";
 
 export interface WaitlistProps {
@@ -54,27 +53,6 @@ export const Waitlist = component$<WaitlistProps>((props) => {
                 props.success$();
             }
         })
-
-
-        // const templateParams = {
-        //     user_name: name,
-        //     user_email: email,
-        //     user_donated: donated
-        // }
-
-        // Send email to myself
-        // emailjs.send("service_de9mf33", "template_wugxd3j", templateParams)
-        //     .then(function (response) {
-        //         console.log('SUCCESS!', response.status, response.text);
-        //         props.success$();
-        //     }, function (error) {
-        //         console.log('FAILED...', error);
-        //         props.error$(error);
-        //     });
-    })
-
-    useClientEffect$(() => {
-        emailjs.init("HMv3N68qZ2Rn62K0m")
     })
 
     return (
