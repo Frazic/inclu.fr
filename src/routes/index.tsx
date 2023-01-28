@@ -13,8 +13,8 @@ import { Toast } from '~/components/toast/toast';
 export default component$(() => {
   useStyles$(styles);
 
+  // THIS UPDATES THE TEXT RESULT RECEIVED FROM THE AI
   // const resultValue = useSignal<string>("");
-
   // const setResultValue = $(() => {
   //   const textInput = document.getElementById("text-input") as HTMLTextAreaElement | null;
   //   if (!textInput) return;
@@ -65,12 +65,41 @@ export default component$(() => {
         </p>
         <p>You may have also noticed the special font: <a href="https://opendyslexic.org/">OpenDyslexic</a></p>
       </div>
+
+      {/* EXAMPLES */}
+      <div id="examples" class="flex">
+        <h3>Examples</h3>
+        <div id="examples-container">
+          <div class="example-item">
+            <div class="example-input">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum magnam ullam tempore nobis. Magni doloremque id, est repellat velit amet ipsam, modi blanditiis enim, dolorem itaque ea corrupti illo minima!</div>
+            <i class="fa-solid fa-arrow-right" />
+            <div class="example-output">Out</div>
+          </div>
+          <div class="example-item">
+            <div class="example-input">In</div>
+            <i class="fa-solid fa-arrow-right" />
+            <div class="example-output">Out</div>
+          </div>
+          <div class="example-item">
+            <div class="example-input">In</div>
+            <i class="fa-solid fa-arrow-right" />
+            <div class="example-output">Out</div>
+          </div>
+        </div>
+      </div>
+
       <div id="pricing" class={"flex"}>
         <h3>Pricing</h3>
         <Accordion />
       </div>
       <Toast store={toastStore} />
     </section>
+    <footer>
+      <p>Disclaimer:</p>
+      <a href="mailto:inclure.net@gmail.com">
+        <h3>Contact</h3>
+      </a>
+    </footer>
   </>);
 });
 
