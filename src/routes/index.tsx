@@ -1,14 +1,14 @@
-import { component$, useStore, useStyles$ } from '@builder.io/qwik';
+import { component$, useStore, useStyles$ } from "@builder.io/qwik";
 // import { $, useSignal } from '@builder.io/qwik';
-import type { DocumentHead } from '@builder.io/qwik-city';
+import type { DocumentHead } from "@builder.io/qwik-city";
 // import { MenuBurgerIcon } from '~/components/icons/menu-burger';
 // import { GearIcon } from '~/components/icons/gear';
 // import { ResultBox } from '~/components/resultBox/resultBox';
-import { Waitlist } from '~/components/waitlist/waitlist';
+import { Waitlist } from "~/components/waitlist/waitlist";
 import styles from "./main.css?inline";
-import { Accordion } from '~/components/accordion/accordion';
-import type { ToastStore } from '~/components/toast/toast';
-import { Toast } from '~/components/toast/toast';
+import { Accordion } from "~/components/accordion/accordion";
+import type { ToastStore } from "~/components/toast/toast";
+import { Toast } from "~/components/toast/toast";
 
 export default component$(() => {
   useStyles$(styles);
@@ -26,18 +26,19 @@ export default component$(() => {
     title: "",
     message: "",
     type: "error",
-    active: false
-  })
+    active: false,
+  });
 
-  return (<>
-    <section id="main">
-      <header>
-        {/* <div id="menu-btn" class={"flex"} role="button">
+  return (
+    <>
+      <section id="main">
+        <header>
+          {/* <div id="menu-btn" class={"flex"} role="button">
           <MenuBurgerIcon />
         </div> */}
-        <h1 id="title">INCLURE</h1>
-      </header>
-      {/* <div id="action" class={"flex"}>
+          <h1 id="title">INCLURE</h1>
+        </header>
+        {/* <div id="action" class={"flex"}>
         <form action="#" id="text-input-form" preventdefault:submit>
           <label for="text-input">
             <h3>Make inclusive:</h3>
@@ -54,61 +55,96 @@ export default component$(() => {
           <ResultBox value={resultValue.value} />
         </form>
       </div> */}
-      <Waitlist
-        success$={() => { toastStore.title = "Success"; toastStore.message = "Thanks for joining the waitlist!"; toastStore.type = "sucess"; toastStore.active = true }}
-        error$={(error: string) => { toastStore.title = "Error"; toastStore.message = `${error}`; toastStore.type = "error"; toastStore.active = true }}
-      />
-      <div id="about" class={"flex"}>
-        <h3>About</h3>
-        <p id="about-text">
-          We believe that doing our best to include everyone is crucial in today's society. This tool will help you do that thanks to the power of AI! Just input your text, hit 'GO' and it'll do its best to transform it so that no one is excluded or forgotten.
-        </p>
-        <p>You may have also noticed the special font: <a href="https://opendyslexic.org/">OpenDyslexic</a></p>
-      </div>
+        <Waitlist
+          success$={() => {
+            toastStore.title = "Succès";
+            toastStore.message = "Merci d'avoir rejoint la liste!";
+            toastStore.type = "sucess";
+            toastStore.active = true;
+          }}
+          error$={(error: string) => {
+            toastStore.title = "Erreur";
+            toastStore.message = `${error}`;
+            toastStore.type = "error";
+            toastStore.active = true;
+          }}
+        />
+        <div id="about" class={"flex"}>
+          <h3>À propos</h3>
+          <p id="about-text">
+            Nous avons la conviction que faire de notre mieux pour être inclusifs dans notre écriture est crucial dans la société d'aujourd'hui. Cet outil vous permettra d'utiliser la puissance de l'IA pour vous aider. Il suffira de rentrer votre texte, appuyer sur 'GO' et l'outil fera de son mieux pour le transformer en incluant tout le monde.
+          </p>
+          <p>
+            Vous avez peut-être pu remarquer la police d'écriture : {" "}
+            <a href="https://opendyslexic.org/">OpenDyslexic</a>
+          </p>
+        </div>
 
-      {/* EXAMPLES */}
-      <div id="examples" class="flex">
-        <h3>Examples</h3>
-        <div id="examples-container">
-          <div class="example-item">
-            <div class="example-input">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum magnam ullam tempore nobis. Magni doloremque id, est repellat velit amet ipsam, modi blanditiis enim, dolorem itaque ea corrupti illo minima!</div>
-            <i class="fa-solid fa-arrow-right" />
-            <div class="example-output">Out</div>
-          </div>
-          <div class="example-item">
-            <div class="example-input">In</div>
-            <i class="fa-solid fa-arrow-right" />
-            <div class="example-output">Out</div>
-          </div>
-          <div class="example-item">
-            <div class="example-input">In</div>
-            <i class="fa-solid fa-arrow-right" />
-            <div class="example-output">Out</div>
+        {/* EXAMPLES */}
+        <div id="examples" class="flex">
+          <h3>Exemples</h3>
+          <div id="examples-container">
+            <div class="example-item">
+              <div class="example-input">
+                L'Homme de Néandertal est un groupe disparu d'hommes fossiles
+                apparus en Eurasie il y a environ 45 000 ans
+              </div>
+              <i class="fa-solid fa-arrow-down" />
+              <i class="fa-solid fa-arrow-right" />
+              <div class="example-output">
+                Les Néandertaliens étaient un groupe d'êtres humains fossiles
+                qui ont vécu en Eurasie occidentale il y a environ 45 000 ans.
+              </div>
+            </div>
+            <div class="example-item">
+              <div class="example-input">
+                Les enseignants ont besoin de formation pour aborder les
+                questions de diversité dans leur classe.
+              </div>
+              <i class="fa-solid fa-arrow-down" />
+              <i class="fa-solid fa-arrow-right" />
+              <div class="example-output">
+                Les enseignant·e·s ont besoin de formation pour aborder les
+                questions de diversité dans leur classe.
+              </div>
+            </div>
+            <div class="example-item">
+              <div class="example-input">
+                Les auteurs ont soumis leur manuscrit pour le concours
+                littéraire.
+              </div>
+              <i class="fa-solid fa-arrow-down" />
+              <i class="fa-solid fa-arrow-right" />
+              <div class="example-output">
+                Les auteurices ont soumis leur manuscrit pour le concours
+                littéraire.
+              </div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div id="pricing" class={"flex"}>
-        <h3>Pricing</h3>
-        <Accordion />
-      </div>
-      <Toast store={toastStore} />
-    </section>
-    <footer>
-      <p>Disclaimer:</p>
-      <a href="mailto:inclure.net@gmail.com">
-        <h3>Contact</h3>
-      </a>
-    </footer>
-  </>);
+        <div id="pricing" class={"flex"}>
+          <h3>Abonnements</h3>
+          <Accordion />
+        </div>
+        <Toast store={toastStore} />
+      </section>
+      <footer>
+        <p>Attention : Une IA pouvant se tromper ou mal interpréter, les résultats ne pourront jamais être garantis à 100 %. Il en dépend de l'utilisateur de vérifier ce que propose l'IA. Inclure.net ne peut être tenu responsable des textes proposés par l'IA.</p>
+        <a href="mailto:inclure.net@gmail.com">
+          <h3>Contact</h3>
+        </a>
+      </footer>
+    </>
+  );
 });
 
 export const head: DocumentHead = {
-  title: 'Inclure.net',
+  title: "Inclure.net",
   meta: [
     {
-      name: 'Inclure.net',
-      content: 'Use AI to make your texts inclusive',
+      name: "Inclure.net",
+      content: "Use AI to make your texts inclusive",
     },
   ],
 };

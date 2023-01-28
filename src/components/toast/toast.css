@@ -1,69 +1,67 @@
 .toast-container {
-    position: absolute;
-    padding: 2em;
-    top: -5%;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0;
-    transition:
-    top 0.5s ease,
-    opacity 0.5s ease;
+  position: absolute;
+  padding: 2em;
+  top: -5%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: top 0.5s ease, opacity 0.5s ease;
 
-    border: 4px solid black;
-    box-shadow: 6px 6px 0 0 black;
+  border: 4px solid black;
+  box-shadow: 6px 6px 0 0 black;
 }
 
 .toast-container button {
-    aspect-ratio: 1;
+  aspect-ratio: 1;
 }
 
 .sucess {
-    background-color: hsl(125, 68%, 55%);
+  background-color: hsl(125, 68%, 55%);
 }
 
 .error {
-    background-color: hsl(0, 68%, 63%);
+  background-color: hsl(0, 68%, 63%);
 }
 
 .toast-container.active {
-    top: 5%;
-    opacity: 1;
+  top: 5%;
+  opacity: 1;
 }
 
 .toast-container.active button {
-    display: inline;
+  display: inline;
 }
 
 .toast-info {
-    display: grid;
-    grid-template-columns: 0.1fr 0.9fr;
-    grid-template-rows: 0.5fr 1fr;
-    row-gap: 1em;
-    color: hsl(230, 33%, 21%);
+  display: grid;
+  grid-template-columns: 0.1fr 0.9fr;
+  grid-template-rows: 0.5fr 1fr;
+  row-gap: 1em;
+  color: hsl(230, 33%, 21%);
 }
 
 .toast-info button {
-    grid-row: 1;
-    grid-column: 1;
+  grid-row: 1;
+  grid-column: 1;
 }
 
 .toast-info .title {
-    color: inherit;
-    grid-row: 1;
-    grid-column: 2;
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.2em;
+  color: inherit;
+  grid-row: 1;
+  grid-column: 2;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2em;
 }
 
 .toast-info .message {
-    color: inherit;
-    grid-row: 2;
-    grid-column: 1 / -1;
+  color: inherit;
+  grid-row: 2;
+  grid-column: 1 / -1;
 }
 
 @media screen and (max-width: 150ch) {
-    .toast-container {
-        width: 90%;
-    }
+  .toast-container {
+    width: 90%;
+  }
 }

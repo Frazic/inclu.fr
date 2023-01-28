@@ -1,54 +1,52 @@
-@supports(-webkit-appearance: none) or (-moz-appearance: none) {
-    input[type='email'],
-    input[type='checkbox'],
-    input[type='text'] {
-      -webkit-appearance: none;
-      -moz-appearance: none;
-    }
+@supports (-webkit-appearance: none) or (-moz-appearance: none) {
+  input[type="email"],
+  input[type="checkbox"],
+  input[type="text"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
   }
+}
 
 input:is([type="email"], [type="text"]) {
-    display: block;
-    width: 100%;
-    font-size: 0.8em;
-    background-color: var(--c-card-bg);
-    color: var(--c-card-text);
-    transition:
-        transform 0.05s ease-in,
-        box-shadow 0.05s ease-in;
-    margin-bottom: 1em;
+  display: block;
+  width: 100%;
+  font-size: 0.8em;
+  background-color: var(--c-card-bg);
+  color: var(--c-card-text);
+  transition: transform 0.05s ease-in, box-shadow 0.05s ease-in;
+  margin-bottom: 1em;
 }
 
 input:is(:hover, :active, :focus) {
-    transform: translate(-1px, -1px);
-    box-shadow: 4px 4px 0px 0px black;
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0px 0px black;
 }
 
 input[type="checkbox"] {
-    background-color: var(--c-card-bg);
-    color: var(--c-card-text);
-    vertical-align: sub;
-    width: 1.2em;
-    border: 2px solid black;
-    aspect-ratio: 1;
+  background-color: var(--c-card-bg);
+  color: var(--c-card-text);
+  vertical-align: sub;
+  width: 1.2em;
+  border: 2px solid black;
+  aspect-ratio: 1;
 }
 
 input[type="checkbox"]:checked {
-    position: relative;
+  position: relative;
 }
 
 input[type="checkbox"]:checked::after {
-    position: absolute;
-    content:"✔";
-    font-size: 1em;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  content: "✔";
+  font-size: 1em;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 button {
-    display: block;
-    padding: 0.5em;
-    margin-inline: auto;
-    margin-top: 1em;
+  display: block;
+  padding: 0.5em;
+  margin-inline: auto;
+  margin-top: 1em;
 }

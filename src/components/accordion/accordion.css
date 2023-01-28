@@ -1,77 +1,77 @@
 .accordion {
-    display: block;
+  display: block;
 }
 
 .accordion-item {
-    background-color: var(--c-card-bg);
-    margin-bottom: 1rem;
-    border: 4px solid black;
-    box-shadow: 6px 6px 0 0 black;
+  background-color: var(--c-card-bg);
+  margin-bottom: 1rem;
+  border: 4px solid black;
+  box-shadow: 6px 6px 0 0 black;
 
-    --transition: 0.5s;
+  --transition: 0.5s;
 }
 
 .accordion-header {
-    background-color: var(--c-btn);
-    padding: 1rem;
-    cursor: pointer;
+  background-color: var(--c-btn);
+  padding: 1rem;
+  cursor: pointer;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .accordion-header h4 {
-    color: var(--c-btn-text);
+  color: var(--c-btn-text);
 }
 
 i.fa-solid {
-    color: var(--c-btn-text);
-    font-size: 1.5em;
-    display: none;
+  color: var(--c-btn-text);
+  font-size: 1.5em;
+  display: none;
 
-    transition: transform var(--transition) ease;
+  transition: transform var(--transition) ease;
 }
 
 i.fa-solid.active {
-    display: block;
+  display: block;
 }
 
 .accordion-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height var(--transition) ease;
-    color: var(--c-card-text);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition) ease;
+  color: var(--c-card-text);
 }
 
 .accordion-answer.active {
-    max-height: 20em;
+  max-height: 20em;
 }
 
 .accordion-answer ul {
-    padding: 1rem;
-    list-style-type: none;
+  padding: 1rem;
+  list-style-type: none;
 }
 
 .accordion-answer li::before {
-    content: "+ ";
+  content: "+ ";
 }
 
 @media screen and (min-width: 150ch) {
-    .accordion {
-        display: flex;
-        gap: 2rem;
-    }
+  .accordion {
+    display: flex;
+    gap: 2rem;
+  }
 
-    .accordion-header {
-        cursor: revert;
-    }
+  .accordion-header {
+    cursor: revert;
+  }
 
-    .accordion-answer {
-        max-height: max-content;
-    }
+  .accordion-answer {
+    max-height: max-content;
+  }
 
-    i:is(.fa-solid, .fa-solid.active) {
-        display: none;
-    }
+  i:is(.fa-solid, .fa-solid.active) {
+    display: none;
+  }
 }

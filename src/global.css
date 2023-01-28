@@ -1,26 +1,26 @@
 :root {
-  --c-p: #B8C1EC;
-  --c-btn: #EEBBC3;
-  --c-btn-hover: #B8C1EC;
+  --c-p: #b8c1ec;
+  --c-btn: #eebbc3;
+  --c-btn-hover: #b8c1ec;
   --c-btn-text: #232946;
-  --c-card-bg: #FFFFFE;
-  --c-card-hover: #B8C1EC;
+  --c-card-bg: #fffffe;
+  --c-card-bg-2: #b8c1ec;
   --c-card-text: #232946;
-  --c-headline: #FFFFFE;
+  --c-headline: #fffffe;
   --c-bg: #232946;
 }
 
 @media (prefers-color-scheme: light) {
   :root {
     --c-p: #232946;
-    --c-btn: #EEBBC3;
-    --c-btn-hover: #B8C1EC;
+    --c-btn: #eebbc3;
+    --c-btn-hover: #b8c1ec;
     --c-btn-text: #232946;
-    --c-card-bg: #B8C1EC;
-    --c-card-hover: #FFFFFE;
+    --c-card-bg: #fffffe;
+    --c-card-bg-2: #b8c1ec;
     --c-card-text: #232946;
     --c-headline: #232946;
-    --c-bg: #FFFFFE;
+    --c-bg: #fffffe;
   }
 }
 
@@ -80,9 +80,7 @@ button {
   border: 2px solid black;
   box-shadow: 4px 4px 0px 0px black;
 
-  transition:
-    transform 0.025s ease-in,
-    box-shadow 0.025s ease-in;
+  transition: transform 0.025s ease-in, box-shadow 0.025s ease-in;
 }
 
 button:hover {
