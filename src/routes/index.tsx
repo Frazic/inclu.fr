@@ -72,10 +72,15 @@ export default component$(() => {
         <div id="about" class={"flex"}>
           <h3>À propos</h3>
           <p id="about-text">
-            Nous avons la conviction que faire de notre mieux pour être inclusifs dans notre écriture est crucial dans la société d'aujourd'hui. Cet outil vous permettra d'utiliser la puissance de l'IA pour vous aider. Il suffira de rentrer votre texte, appuyer sur 'GO' et l'outil fera de son mieux pour le transformer en incluant tout le monde.
+            Nous avons la conviction que faire de notre mieux pour être
+            inclusifs dans notre écriture est crucial dans la société
+            d'aujourd'hui. Cet outil vous permettra d'utiliser la puissance de
+            l'IA pour vous aider. Il suffira de rentrer votre texte, appuyer sur
+            'GO' et l'outil fera de son mieux pour le transformer en incluant
+            tout le monde.
           </p>
           <p>
-            Vous avez peut-être pu remarquer la police d'écriture : {" "}
+            Vous avez peut-être pu remarquer la police d'écriture :{" "}
             <a href="https://opendyslexic.org/">OpenDyslexic</a>
           </p>
         </div>
@@ -130,7 +135,12 @@ export default component$(() => {
         <Toast store={toastStore} />
       </section>
       <footer>
-        <p>Attention : Une IA pouvant se tromper ou mal interpréter, les résultats ne pourront jamais être garantis à 100 %. Il en dépend de l'utilisateur de vérifier ce que propose l'IA. Inclure.net ne peut être tenu responsable des textes proposés par l'IA.</p>
+        <p>
+          Attention : Une IA pouvant se tromper ou mal interpréter, les
+          résultats ne pourront jamais être garantis à 100 %. Il en dépend de
+          l'utilisateur de vérifier ce que propose l'IA. Inclure.net ne peut
+          être tenu responsable des textes proposés par l'IA.
+        </p>
         <a href="mailto:inclure.net@gmail.com">
           <h3>Contact</h3>
         </a>
