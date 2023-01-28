@@ -23,7 +23,8 @@ This is still a WIP and is NOT deployed to production yet.
 - [x] On join check if email already in DB
 - [x] Setup optional pay
 - [x] Email users that joined
-- [ ] Logs
+- [x] Logs
+- [ ] Remove all test values and clear todos
 - [ ] Include server in git
 - [ ] Plan features
 - [ ] Deploy
