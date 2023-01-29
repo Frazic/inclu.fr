@@ -40,7 +40,7 @@ var logger = require("./winston.ts");
 // EXPRESS
 var express = require('express');
 var app = express();
-app.listen(process.env.PORT, function () { logger.info("Server running on port ".concat(process.env.PORT)); });
+app.listen(process.env.PORT, function () { logger.info("THE SERVER IS WORKING, HERE IS THE PORT: ".concat(process.env.PORT)); });
 // CORS
 var cors = require("cors");
 app.use(cors({
