@@ -1,22 +1,18 @@
 const winston = require("winston");
 require('winston-daily-rotate-file');
 const Mail = require("winston-mail").Mail;
+const { LoggingWinston } = require('@google-cloud/logging-winston');
+
+const loggingWinston = new LoggingWinston();
 
 module.exports = winston.createLogger({
     transports: [
+        loggingWinston,
         new winston.transports.Console({
             format: winston.format.combine(
                 winston.format.timestamp(),
                 winston.format.json()
             ),
-            level: "info",
-        }),
-        new winston.transports.Console({
-            format: winston.format.combine(
-                winston.format.timestamp(),
-                winston.format.json()
-            ),
-            level: "error",
         }),
         new winston.transports.Mail({
             format: winston.format.combine(
@@ -34,6 +30,7 @@ module.exports = winston.createLogger({
         })
     ],
     exceptionHandlers: [
+        loggingWinston,
         new winston.transports.Console({
             format: winston.format.combine(
                 winston.format.timestamp(),
@@ -52,6 +49,7 @@ module.exports = winston.createLogger({
         })
     ],
     rejectionHandlers: [
+        loggingWinston,
         new winston.transports.Console({
             format: winston.format.combine(
                 winston.format.timestamp(),

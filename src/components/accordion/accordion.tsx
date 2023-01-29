@@ -33,7 +33,7 @@ export const Accordion = component$(() => {
           onClick$={() => (activeItem.value = [false, !activeItem.value[1]])}
         >
           <h4>Pro</h4>
-          <h4>5€/mo</h4>
+          <h4>5€/mois</h4>
           <i
             class={`fa-solid fa-plus ${!activeItem.value[1] ? " active" : ""}`}
           ></i>
