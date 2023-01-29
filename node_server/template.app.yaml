@@ -1,0 +1,11 @@
+runtime: nodejs18
+instance_class: F1
+env_variables:
+  PORT:
+  CLIENT_URL: ""
+  SUPABASE_URL: ""
+  SUPABASE_KEY: ""
+  SENDINBLUE_HOST: ""
+  SENDINBLUE_PORT:
+  SENDINBLUE_USER: ""
+  SENDINBLUE_PASSWORD: ""
