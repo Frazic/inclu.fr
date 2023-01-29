@@ -40,7 +40,7 @@ var logger = require("./winston.ts");
 // EXPRESS
 var express = require('express');
 var app = express();
-app.listen(process.env.APP_PORT, function () { logger.info("Server running on port ".concat(process.env.APP_PORT)); });
+app.listen(process.env.PORT, function () { logger.info("Server running on port ".concat(process.env.PORT)); });
 // CORS
 var cors = require("cors");
 app.use(cors({
@@ -49,7 +49,7 @@ app.use(cors({
 // SUPABASE
 var supabase = require("./supabase.ts");
 // STRIPE
-var stripe = require('stripe')(process.env.APP_STRIPE_SECRET_KEY);
+var stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 // ENDPOINTS
 app.post("/join", express.json(), function (req, res) { return __awaiter(_this, void 0, void 0, function () {
     var requestBody, userInfo, msg, code, errorMessage, session, error_1;
@@ -93,12 +93,12 @@ app.post("/join", express.json(), function (req, res) { return __awaiter(_this, 
                         payment_method_types: ["card"],
                         line_items: [
                             {
-                                price: process.env.APP_STRIPE_DONATION_PRODUCT_ID,
+                                price: process.env.STRIPE_DONATION_PRODUCT_ID,
                                 quantity: 1
                             }
                         ],
-                        success_url: "".concat(process.env.APP_CLIENT_URL, "/success"),
-                        cancel_url: "".concat(process.env.APP_CLIENT_URL, "/"),
+                        success_url: "".concat(process.env.CLIENT_URL, "/success"),
+                        cancel_url: "".concat(process.env.CLIENT_URL, "/"),
                         metadata: {
                             name: userInfo.name,
                             email: userInfo.email
@@ -144,7 +144,7 @@ app.post("/webhook", express.raw({ type: 'application/json' }), function (reques
             case 0:
                 logger.info("Request to /webhook received");
                 logger.debug(request.headers);
-                endpointSecret = process.env.APP_STRIPE_WEBHOOK_SECRET;
+                endpointSecret = process.env.STRIPE_WEBHOOK_SECRET;
                 sig = request.headers['stripe-signature'];
                 try {
                     event = stripe.webhooks.constructEvent(request.body, sig, endpointSecret);
@@ -226,11 +226,11 @@ function insertNewUser(userInfo) {
                         logger.error("".concat(stringifyUserInfo(userInfo), ": CRITICAL Couldn't insert into supabase"));
                     nodemailer = require("nodemailer");
                     transporter = nodemailer.createTransport({
-                        host: process.env.APP_SENDINBLUE_HOST,
-                        port: process.env.APP_SENDINBLUE_PORT,
+                        host: process.env.SENDINBLUE_HOST,
+                        port: process.env.SENDINBLUE_PORT,
                         auth: {
-                            user: process.env.APP_SENDINBLUE_USER,
-                            pass: process.env.APP_SENDINBLUE_PASSWORD
+                            user: process.env.SENDINBLUE_USER,
+                            pass: process.env.SENDINBLUE_PASSWORD
                         }
                     });
                     text = error
