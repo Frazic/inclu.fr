@@ -33,7 +33,10 @@ This is still a WIP and is NOT deployed to production yet.
 - [x] Have a disclaimer
 - [x] Have a Contact link
 - [x] Remove all test values and clear todos
-- [ ] Deploy
+- [x] Deploy
+- [ ] Add SEO
+- [ ] Optimise for lighthouse
+- [ ] Double check accessiblity
 
 ### Final product
 
