@@ -41,7 +41,6 @@ export const Waitlist = component$<WaitlistProps>((props) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        test: 0,
         user_info: {
           name: name,
           email: email,

@@ -148,7 +148,7 @@ export default component$(() => {
         <p>
           Attention : Une IA pouvant se tromper ou mal interpréter, les
           résultats ne pourront jamais être garantis à 100 %. Il en dépend de
-          l'utilisateur de vérifier ce que propose l'IA. Inclure.net ne peut
+          l'utilisateurice de vérifier ce que propose l'IA. Inclure.net ne peut
           être tenu responsable des textes proposés par l'IA.
         </p>
         <a href="mailto:inclure.net@gmail.com">
