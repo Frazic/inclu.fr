@@ -20,9 +20,11 @@
     "preview": "qwik build preview && vite preview --open",
     "start": "vite --open --mode ssr",
     "start.server": "cd node_server && node .",
+    "partytown": "partytown copylib public/~partytown",
     "qwik": "qwik"
   },
   "devDependencies": {
+    "@builder.io/partytown": "^0.7.0",
     "@builder.io/qwik": "0.16.2",
     "@builder.io/qwik-city": "0.0.128",
     "@types/eslint": "8.4.10",
