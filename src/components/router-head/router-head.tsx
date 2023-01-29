@@ -29,14 +29,14 @@ export const RouterHead = component$(() => {
       <meta property="og:url" content="https://inclure.net/" />
       <meta property="og:title" content="Inclure.net" />
       <meta property="og:description" content="Inclure.net: Site d'IA pour rendre les textes inclusifs" />
-      <meta property="og:image" content="/inclure.webp" />
+      <meta property="og:image" content="https://gwytigvyfawwmshpjsas.supabase.co/storage/v1/object/public/img-bucket/inclure.webp" />
 
       {/* <!-- Twitter -- /> */}
       <meta property="twitter:card" content="summary_large_image" />
       <meta property="twitter:url" content="https://inclure.net/" />
       <meta property="twitter:title" content="Inclure.net" />
       <meta property="twitter:description" content="Inclure.net: Site d'IA pour rendre les textes inclusifs" />
-      <meta property="twitter:image" content="/inclure.webp" />
+      <meta property="twitter:image" content="https://gwytigvyfawwmshpjsas.supabase.co/storage/v1/object/public/img-bucket/inclure.webp" />
 
       {head.meta.map((m) => (
         <meta {...m} />
