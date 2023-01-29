@@ -73,7 +73,7 @@ export default component$(() => {
           <h2>À propos</h2>
           <p id="about-text">
             Nous avons la conviction que faire de notre mieux pour être
-            inclusifs dans notre écriture est crucial dans la société
+            inclusif·ves dans notre écriture est crucial dans la société
             d'aujourd'hui. Cet outil vous permettra d'utiliser la puissance de
             l'IA pour vous aider. Il suffira de rentrer votre texte, appuyer sur
             'GO' et l'outil fera de son mieux pour le transformer en incluant
