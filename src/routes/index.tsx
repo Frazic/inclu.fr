@@ -125,6 +125,16 @@ export default component$(() => {
                 littéraire.
               </div>
             </div>
+            <div class="example-item">
+              <div class="example-input">
+                Malgré son handicap, elle se bat pour défendre les violences faites aux femmes.
+              </div>
+              <i class="fa-solid fa-arrow-down" />
+              <i class="fa-solid fa-arrow-right" />
+              <div class="example-output">
+                Elle se bat pour défendre les violences faites aux femmes.
+              </div>
+            </div>
           </div>
         </div>
 
