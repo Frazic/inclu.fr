@@ -1,5 +1,7 @@
 # INCLURE.NET
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/797d131c-e500-4037-82be-69a538831e23/deploy-status)](https://app.netlify.com/sites/inclurenet/deploys)
+
 ## IMPORTANT
 
 This is still a WIP and is NOT deployed to production yet.
