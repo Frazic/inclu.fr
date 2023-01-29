@@ -21,7 +21,7 @@
   justify-content: space-between;
 }
 
-.accordion-header h4 {
+.accordion-header h3 {
   color: var(--c-btn-text);
 }
 

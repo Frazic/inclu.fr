@@ -91,7 +91,7 @@ export const Waitlist = component$<WaitlistProps>((props) => {
   return (
     <div id="waitlist">
       <form onSubmit$={submit} id="waitlist-form" preventdefault:submit>
-        <h3>Rejoignez la liste d'attente</h3>
+        <h2>Rejoignez la liste d'attente</h2>
         <label for="name">Nom</label>
         <input
           type={"text"}

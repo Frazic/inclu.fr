@@ -41,7 +41,7 @@ export default component$(() => {
         {/* <div id="action" class={"flex"}>
         <form action="#" id="text-input-form" preventdefault:submit>
           <label for="text-input">
-            <h3>Make inclusive:</h3>
+            <h2>Make inclusive:</h2>
           </label>
           <textarea name="text-input" id="text-input" cols={30} rows={10} about="Text input to be made inclusive" placeholder="L'Homme de Néanderthal" aria-label="text-input"
           />
@@ -70,7 +70,7 @@ export default component$(() => {
           }}
         />
         <div id="about" class={"flex"}>
-          <h3>À propos</h3>
+          <h2>À propos</h2>
           <p id="about-text">
             Nous avons la conviction que faire de notre mieux pour être
             inclusifs dans notre écriture est crucial dans la société
@@ -87,7 +87,7 @@ export default component$(() => {
 
         {/* EXAMPLES */}
         <div id="examples" class="flex">
-          <h3>Exemples</h3>
+          <h2>Exemples</h2>
           <div id="examples-container">
             <div class="example-item">
               <div class="example-input">
@@ -139,7 +139,7 @@ export default component$(() => {
         </div>
 
         <div id="pricing" class={"flex"}>
-          <h3>Abonnements</h3>
+          <h2>Abonnements</h2>
           <Accordion />
         </div>
         <Toast store={toastStore} />
@@ -152,7 +152,7 @@ export default component$(() => {
           être tenu responsable des textes proposés par l'IA.
         </p>
         <a href="mailto:inclure.net@gmail.com">
-          <h3>Contact</h3>
+          <h2>Contact</h2>
         </a>
       </footer>
     </>

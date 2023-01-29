@@ -18,13 +18,13 @@ export default component$(() => {
         transform: "translate(-50%, -50%)",
       }}
     >
-      <h3
+      <h2
         style={{
           "margin-inline": "auto",
         }}
       >
         Thank you for joining the waitlist!
-      </h3>
+      </h2>
       <p>You should have received an email :)</p>
       <a
         href="/"

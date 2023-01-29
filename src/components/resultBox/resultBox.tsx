@@ -8,7 +8,7 @@ export const ResultBox = component$<ResultBoxProps>((props) => {
   return (
     <div style={{ display: props.value != "" ? "block" : "none" }}>
       <label for="result-box">
-        <h3>Result</h3>
+        <h2>Result</h2>
       </label>
       <textarea
         name="result-box"

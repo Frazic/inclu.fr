@@ -12,7 +12,7 @@ export const Accordion = component$(() => {
           class="accordion-header"
           onClick$={() => (activeItem.value = [!activeItem.value[0], false])}
         >
-          <h4>Gratuit</h4>
+          <h3>Gratuit</h3>
           <i
             class={`fa-solid fa-plus ${!activeItem.value[0] ? " active" : ""}`}
           ></i>
@@ -32,8 +32,8 @@ export const Accordion = component$(() => {
           class="accordion-header"
           onClick$={() => (activeItem.value = [false, !activeItem.value[1]])}
         >
-          <h4>Pro</h4>
-          <h4>5€/mois</h4>
+          <h3>Pro</h3>
+          <h3>5€/mois</h3>
           <i
             class={`fa-solid fa-plus ${!activeItem.value[1] ? " active" : ""}`}
           ></i>
