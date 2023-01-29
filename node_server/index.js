@@ -51,6 +51,10 @@ var supabase = require("./supabase.ts");
 // STRIPE
 var stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 // ENDPOINTS
+app.get('/', (req, res) => {
+    res.send('Hello from App Engine!');
+  });
+
 app.post("/join", express.json(), function (req, res) { return __awaiter(_this, void 0, void 0, function () {
     var requestBody, userInfo, msg, code, errorMessage, session, error_1;
     var _a, _b;
