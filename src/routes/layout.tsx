@@ -4,7 +4,7 @@ export default component$(() => {
   return (
     <>
       <header>
-        <div class="googleAd top">Ad here</div>
+        <div class="googleAd top"></div>
       </header>
       <main>
         <section style={{ "position": "relative" }}>
@@ -21,7 +21,7 @@ export default component$(() => {
         <a href="mailto:inclure.net@gmail.com">
           <h2>Contact</h2>
         </a>
-        <div class="googleAd bottom">Ad here</div>
+        <div class="googleAd bottom"></div>
       </footer>
     </>
   );
