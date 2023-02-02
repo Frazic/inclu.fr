@@ -6,6 +6,10 @@ export default component$(() => {
     return (
         <>
             <div class="wrapper">
+                <a href="/"
+                    style={{
+                        "text-decoration": "none"
+                    }}><h2>🏠</h2></a>
                 <h1>Confidentialité</h1>
                 <h2>Informations personelles</h2>
                 <p>+ Inclure.net ne collecte aucune donnée personelle.</p>

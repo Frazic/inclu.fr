@@ -32,9 +32,18 @@ export default component$(() => {
           l'utilisateurice de vérifier ce que propose l'IA. Inclure.net ne peut
           être tenu responsable des textes proposés par l'IA.
         </p>
-        <a href="mailto:inclure.net@gmail.com">
-          <h2>Contact</h2>
-        </a>
+        <div class="links"
+          style={{
+            "display": "flex",
+            "gap": "2em"
+          }}>
+          <a href="mailto:inclure.net@gmail.com">
+            <h2>Contact</h2>
+          </a>
+          <a href="/confidentiality">
+            <h2>Confidentialité</h2>
+          </a>
+        </div>
         <div class="googleAd bottom">
           <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2195304651734956"
             crossOrigin="anonymous"
