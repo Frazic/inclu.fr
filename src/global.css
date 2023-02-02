@@ -125,3 +125,7 @@ footer {
   margin-bottom: 5dvh;
   padding: 2rem;
 }
+
+:is(footer, header) > .googleAd {
+  height: 10dvh;
+}
