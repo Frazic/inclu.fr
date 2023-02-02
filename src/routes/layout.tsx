@@ -4,7 +4,21 @@ export default component$(() => {
   return (
     <>
       <header>
-        <div class="googleAd top"></div>
+        <div class="googleAd top">
+          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2195304651734956"
+            crossOrigin="anonymous"
+            type="text/partytown" />
+          {/* <!-- horizontal --> */}
+          <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-2195304651734956"
+            data-ad-slot="4684868358"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+          <script type="text/partytown">
+            (adsbygoogle = window.adsbygoogle || []).push({ });
+          </script>
+        </div>
       </header>
       <main>
         <section style={{ "position": "relative" }}>
@@ -21,7 +35,21 @@ export default component$(() => {
         <a href="mailto:inclure.net@gmail.com">
           <h2>Contact</h2>
         </a>
-        <div class="googleAd bottom"></div>
+        <div class="googleAd bottom">
+          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2195304651734956"
+            crossOrigin="anonymous"
+            type="text/partytown" />
+          {/* <!-- horizontal --> */}
+          <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-2195304651734956"
+            data-ad-slot="4684868358"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+          <script type="text/partytown">
+            (adsbygoogle = window.adsbygoogle || []).push({ });
+          </script>
+        </div>
       </footer>
     </>
   );
