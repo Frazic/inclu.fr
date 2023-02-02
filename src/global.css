@@ -111,3 +111,17 @@ a {
   outline: 2px solid var(--c-p);
   outline-offset: 2px;
 }
+
+header {
+  display: flex;
+  place-items: center;
+}
+
+footer {
+  display: grid;
+  min-width: 100vw;
+  place-items: center;
+  margin-bottom: 5vh;
+  margin-bottom: 5dvh;
+  padding: 2rem;
+}

@@ -140,15 +140,6 @@ div.example-output {
   background-color: var(--c-card-bg-2);
 }
 
-footer {
-  display: grid;
-  min-width: 100vw;
-  place-items: center;
-  margin-bottom: 5vh;
-  margin-bottom: 5dvh;
-  padding: 2rem;
-}
-
 @media screen and (min-width: 150ch) {
   section#main {
     display: grid;
