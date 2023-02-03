@@ -39,16 +39,15 @@ export const Toast = component$<ToastProps>((props) => {
 
   return (
     <div
-      class={`toast-container ${props.store.type} ${
-        props.store.active ? "active" : ""
-      }`}
+      class={`toast-container ${props.store.type} ${props.store.active ? "active" : ""
+        }`}
       id="toast"
     >
       <div class="toast-info">
+        <p class="title">{props.store.title}</p>
         <button role={"button"} onClick$={clearToast}>
           X
         </button>
-        <p class="title">{props.store.title}</p>
         <p class="message">{props.store.message}</p>
       </div>
     </div>

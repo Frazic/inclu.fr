@@ -6,24 +6,34 @@ import {
   useStyles$,
 } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
-// import { MenuBurgerIcon } from '~/components/icons/menu-burger';
 // import { GearIcon } from '~/components/icons/gear';
-// import { Waitlist } from "~/components/waitlist/waitlist";
 import styles from "./main.css?inline";
-// import { Accordion } from "~/components/accordion/accordion";
 import type { ToastStore } from "~/components/toast/toast";
 import { Toast } from "~/components/toast/toast";
-import { ResultBox } from "~/components/resultBox/resultBox";
 
 export default component$(() => {
   useStyles$(styles);
 
-  // THIS UPDATES THE TEXT RESULT RECEIVED FROM THE AI
+  const serverUrl: string = import.meta.env.VITE_SERVER_URL;
+
+  const serverHasBeenPinged = useSignal<boolean>(false);
   const inputValue = useSignal<string>("");
   const resultValue = useSignal<string>("");
-  const setResultValue = $(async () => {
-    console.log("Fetching");
-    fetch("http://localhost:9333/transform", {
+
+  const handleInput$ = $((input: string) => {
+    if (!serverHasBeenPinged.value) {
+      // Ping the server once to wake it
+      fetch(serverUrl, {
+        method: "GET"
+      })
+      serverHasBeenPinged.value = true;
+    }
+
+    inputValue.value = input;
+  })
+
+  const sendPrompt = $(async () => {
+    fetch(`${serverUrl}/transform`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -39,7 +49,7 @@ export default component$(() => {
         resultValue.value = body.response;
       })
       .catch((err) => {
-        console.log(err);
+        console.log({ err });
       });
   });
 
@@ -72,7 +82,7 @@ export default component$(() => {
               placeholder="L'Homme de Néanderthal"
               aria-label="text-input"
               onInput$={(ev, el: HTMLTextAreaElement) =>
-                (inputValue.value = el.value)
+                handleInput$(el.value)
               }
             />
             <div id="input-buttons">
@@ -80,7 +90,7 @@ export default component$(() => {
                 id="go"
                 role="button"
                 type="submit"
-                onClick$={setResultValue}
+                onClick$={sendPrompt}
               >
                 GO
               </button>
@@ -101,22 +111,6 @@ export default component$(() => {
             />
           </form>
         </div>
-
-        {/* WAITLIST */}
-        {/* <Waitlist
-          success$={() => {
-            toastStore.title = "Succès";
-            toastStore.message = "Merci d'avoir rejoint la liste!";
-            toastStore.type = "sucess";
-            toastStore.active = true;
-          }}
-          error$={(error: string) => {
-            toastStore.title = "Erreur";
-            toastStore.message = `${error}`;
-            toastStore.type = "error";
-            toastStore.active = true;
-          }}
-        /> */}
 
         {/* ABOUT */}
         <div id="about" class={"flex"}>
@@ -188,12 +182,6 @@ export default component$(() => {
             </div>
           </div>
         </div>
-
-        {/* PRICING */}
-        {/* <div id="pricing" class={"flex"}>
-          <h2>Abonnements</h2>
-          <Accordion />
-        </div> */}
 
         <Toast store={toastStore} />
       </section>
