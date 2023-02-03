@@ -79,6 +79,14 @@ form#text-input-form textarea {
   box-shadow: 4px 4px 0 0 black;
 }
 
+textarea#result-box {
+  visibility: hidden;
+}
+
+textarea#result-box.visible {
+  visibility: visible;
+}
+
 div#input-buttons {
   position: relative;
   display: grid;

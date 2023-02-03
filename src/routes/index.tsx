@@ -18,21 +18,25 @@ export default component$(() => {
 
   const serverHasBeenPinged = useSignal<boolean>(false);
   const inputValue = useSignal<string>("");
+
   const resultValue = useSignal<string>("");
+  const resultIsLoading = useSignal<boolean>(false);
 
   const handleInput$ = $((input: string) => {
     if (!serverHasBeenPinged.value) {
       // Ping the server once to wake it
       fetch(serverUrl, {
-        method: "GET"
-      })
+        method: "GET",
+      });
       serverHasBeenPinged.value = true;
     }
 
     inputValue.value = input;
-  })
+  });
 
   const sendPrompt = $(async () => {
+    resultIsLoading.value = true;
+
     fetch(`${serverUrl}/transform`, {
       method: "POST",
       headers: {
@@ -46,9 +50,15 @@ export default component$(() => {
         return res.json();
       })
       .then((body) => {
+        resultIsLoading.value = false;
         resultValue.value = body.response;
       })
       .catch((err) => {
+        resultIsLoading.value = false;
+        toastStore.title = "Erreur";
+        toastStore.message =
+          "Une erreur est survenue, merci de me contacter si cela persiste :c";
+        toastStore.active = true;
         console.log({ err });
       });
   });
@@ -81,17 +91,10 @@ export default component$(() => {
               about="Text input to be made inclusive"
               placeholder="L'Homme de Néanderthal"
               aria-label="text-input"
-              onInput$={(ev, el: HTMLTextAreaElement) =>
-                handleInput$(el.value)
-              }
+              onInput$={(ev, el: HTMLTextAreaElement) => handleInput$(el.value)}
             />
             <div id="input-buttons">
-              <button
-                id="go"
-                role="button"
-                type="submit"
-                onClick$={sendPrompt}
-              >
+              <button id="go" role="button" type="submit" onClick$={sendPrompt}>
                 GO
               </button>
               {/* <div id="options" role="button">
@@ -99,11 +102,18 @@ export default component$(() => {
               </div> */}
             </div>
             <label for="result-box">
-              <h2>Résultat:</h2>
+              <h2>
+                {resultIsLoading.value
+                  ? "Chargement..."
+                  : resultValue.value
+                  ? "Résultat:"
+                  : ""}
+              </h2>
             </label>
             <textarea
               name="result-box"
               id="result-box"
+              class={resultValue.value ? "visible" : ""}
               contentEditable="false"
               cols={30}
               rows={3}

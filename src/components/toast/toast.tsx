@@ -39,8 +39,9 @@ export const Toast = component$<ToastProps>((props) => {
 
   return (
     <div
-      class={`toast-container ${props.store.type} ${props.store.active ? "active" : ""
-        }`}
+      class={`toast-container ${props.store.type} ${
+        props.store.active ? "active" : ""
+      }`}
       id="toast"
     >
       <div class="toast-info">
