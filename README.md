@@ -4,10 +4,12 @@
 
 ## MVP
 
-- [ ] Text input
-- [ ] Submit
+- [x] Text input
+- [x] Submit
+- [x] Log usage in DB
 - [ ] Default prompt to OpenAI
-- [ ] Result
+- [x] Result
+- [ ] Styling
 - [ ] Good / Bad answer to DB to build dataset
 
 ## Improvements
