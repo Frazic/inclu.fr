@@ -14,6 +14,13 @@ import { Toast } from "~/components/toast/toast";
 export default component$(() => {
   useStyles$(styles);
 
+  const toastStore = useStore<ToastStore>({
+    title: "",
+    message: "",
+    type: "error",
+    active: false,
+  });
+
   const serverUrl: string = import.meta.env.VITE_SERVER_URL;
 
   const serverHasBeenPinged = useSignal<boolean>(false);
@@ -21,6 +28,8 @@ export default component$(() => {
 
   const resultValue = useSignal<string>("");
   const resultIsLoading = useSignal<boolean>(false);
+
+  const resultDatabaseID = useSignal<number | null>(null);
 
   const handleInput$ = $((input: string) => {
     if (!serverHasBeenPinged.value) {
@@ -34,7 +43,8 @@ export default component$(() => {
     inputValue.value = input;
   });
 
-  const sendPrompt = $(async () => {
+  const sendPrompt$ = $(async () => {
+    resultValue.value = "";
     resultIsLoading.value = true;
 
     fetch(`${serverUrl}/transform`, {
@@ -52,6 +62,7 @@ export default component$(() => {
       .then((body) => {
         resultIsLoading.value = false;
         resultValue.value = body.response;
+        resultDatabaseID.value = body.database_id;
       })
       .catch((err) => {
         resultIsLoading.value = false;
@@ -63,12 +74,27 @@ export default component$(() => {
       });
   });
 
-  const toastStore = useStore<ToastStore>({
-    title: "",
-    message: "",
-    type: "error",
-    active: false,
-  });
+  const sendFeedback$ = $(async (type: "good" | "bad") => {
+    if (!resultDatabaseID.value) return;
+
+    fetch(`${serverUrl}/feedback`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id: resultDatabaseID.value,
+        type: type
+      }),
+    })
+      .then(() => {
+        console.log("TOAST");
+        toastStore.type = "success";
+        toastStore.title = "Bien reçu!";
+        toastStore.message = "Merci pour votre retour :)"
+        toastStore.active = true;
+      })
+  })
 
   return (
     <>
@@ -94,7 +120,7 @@ export default component$(() => {
               onInput$={(ev, el: HTMLTextAreaElement) => handleInput$(el.value)}
             />
             <div id="input-buttons">
-              <button id="go" role="button" type="submit" onClick$={sendPrompt}>
+              <button id="go" role="button" type="submit" onClick$={sendPrompt$}>
                 GO
               </button>
               {/* <div id="options" role="button">
@@ -106,8 +132,8 @@ export default component$(() => {
                 {resultIsLoading.value
                   ? "Chargement..."
                   : resultValue.value
-                  ? "Résultat:"
-                  : ""}
+                    ? "Résultat:"
+                    : ""}
               </h2>
             </label>
             <textarea
@@ -127,6 +153,7 @@ export default component$(() => {
                 id="feedback-btn good"
                 title="Bon résultat"
                 aria-label="Bon résultat"
+                onClick$={() => sendFeedback$("good")}
               >
                 👍
               </button>
@@ -134,6 +161,7 @@ export default component$(() => {
                 id="feedback-btn bad"
                 title="Mauvais résultat"
                 aria-label="Mauvais résultat"
+                onClick$={() => sendFeedback$("bad")}
               >
                 👎
               </button>

@@ -9,7 +9,7 @@ import styles from "./toast.css?inline";
 export interface ToastStore {
   title: string;
   message: string;
-  type: "sucess" | "error";
+  type: "success" | "error";
   active: boolean;
 }
 
@@ -39,16 +39,17 @@ export const Toast = component$<ToastProps>((props) => {
 
   return (
     <div
-      class={`toast-container ${props.store.type} ${
-        props.store.active ? "active" : ""
-      }`}
+      class={`toast-container ${props.store.type} ${props.store.active ? "active" : ""
+        }`}
       id="toast"
     >
       <div class="toast-info">
-        <p class="title">{props.store.title}</p>
-        <button role={"button"} onClick$={clearToast}>
-          X
-        </button>
+        <div class="row-1">
+          <p class="title">{props.store.title}</p>
+          <button role={"button"} onClick$={clearToast}>
+            X
+          </button>
+        </div>
         <p class="message">{props.store.message}</p>
       </div>
     </div>
