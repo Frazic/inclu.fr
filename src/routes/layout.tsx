@@ -4,11 +4,10 @@ export default component$(() => {
   return (
     <>
       <header>
-        <div class="googleAd top">
+        {/* <div class="googleAd top">
           <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2195304651734956"
             crossOrigin="anonymous"
             type="text/partytown" />
-          {/* <!-- horizontal --> */}
           <ins class="adsbygoogle"
             style="display:block"
             data-ad-client="ca-pub-2195304651734956"
@@ -18,7 +17,7 @@ export default component$(() => {
           <script type="text/partytown">
             (adsbygoogle = window.adsbygoogle || []).push({ });
           </script>
-        </div>
+        </div> */}
       </header>
       <main>
         <section style={{ "position": "relative" }}>
@@ -44,11 +43,10 @@ export default component$(() => {
             <h2>Confidentialité</h2>
           </a>
         </div>
-        <div class="googleAd bottom">
+        {/* <div class="googleAd bottom">
           <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2195304651734956"
             crossOrigin="anonymous"
             type="text/partytown" />
-          {/* <!-- horizontal --> */}
           <ins class="adsbygoogle"
             style="display:block"
             data-ad-client="ca-pub-2195304651734956"
@@ -58,7 +56,7 @@ export default component$(() => {
           <script type="text/partytown">
             (adsbygoogle = window.adsbygoogle || []).push({ });
           </script>
-        </div>
+        </div> */}
       </footer>
     </>
   );

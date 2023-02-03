@@ -2,46 +2,21 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/797d131c-e500-4037-82be-69a538831e23/deploy-status)](https://app.netlify.com/sites/inclurenet/deploys)
 
-## IMPORTANT
+## MVP
 
-This is still a WIP and is NOT deployed to production yet.
+- [ ] Text input
+- [ ] Submit
+- [ ] Default prompt to OpenAI
+- [ ] Result
+- [ ] Good / Bad answer to DB to build dataset
 
-### Project Status
+## Improvements
 
-- [x] Design
-- [ ] Frontend MVP (Join waitlist)
-- [ ] Deploy MVP
-- [ ] Backend
-- [ ] User Auth
-- [ ] Frontend 1.0
-- [ ] QA
-- [ ] Production
-
-## TODO
-
-### MVP
-
-- [x] Register waitlist joins in supabase
-- [x] On join check if email already in DB
-- [x] Setup optional pay
-- [x] Email users that joined
-- [x] Logs
-- [x] Include server in git
-- [x] Plan features
-- [x] Show some examples
-- [x] Translate to French
-- [x] Have a disclaimer
-- [x] Have a Contact link
-- [x] Remove all test values and clear todos
-- [x] Deploy
-- [ ] Add SEO
-- [ ] Optimise for lighthouse
 - [ ] Double check accessiblity
-
-### Final product
-
-- [ ] Restrict free use to a certain amount. IP? Cookies? Something else?
-- [ ] Pro membership (DB, in app effects, billing)
+- [ ] Prompt options
+- [ ] Fine-tuned model
+- [ ] Usage limit (if more direct to contact)
+- [ ] QA
 
 ## About
 
@@ -49,9 +24,7 @@ We believe that making our best efforts to include everyone is crucial in today'
 
 ## How to use
 
-TODO
-
-<!-- [inclure.net](www.inclure.net) -->
+[inclure.net](inclure.net)
 
 ## Netlify
 

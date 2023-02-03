@@ -1,26 +1,41 @@
-import { component$, useStore, useStyles$ } from "@builder.io/qwik";
-// import { $, useSignal } from '@builder.io/qwik';
+import { $, component$, useSignal, useStore, useStyles$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 // import { MenuBurgerIcon } from '~/components/icons/menu-burger';
 // import { GearIcon } from '~/components/icons/gear';
-// import { ResultBox } from '~/components/resultBox/resultBox';
-import { Waitlist } from "~/components/waitlist/waitlist";
+// import { Waitlist } from "~/components/waitlist/waitlist";
 import styles from "./main.css?inline";
-import { Accordion } from "~/components/accordion/accordion";
+// import { Accordion } from "~/components/accordion/accordion";
 import type { ToastStore } from "~/components/toast/toast";
 import { Toast } from "~/components/toast/toast";
+import { ResultBox } from "~/components/resultBox/resultBox";
 
 export default component$(() => {
   useStyles$(styles);
 
   // THIS UPDATES THE TEXT RESULT RECEIVED FROM THE AI
-  // const resultValue = useSignal<string>("");
-  // const setResultValue = $(() => {
-  //   const textInput = document.getElementById("text-input") as HTMLTextAreaElement | null;
-  //   if (!textInput) return;
-  //   console.log(textInput.value)
-  //   resultValue.value = textInput.value;
-  // })
+  const inputValue = useSignal<string>("");
+  const resultValue = useSignal<string>("");
+  const setResultValue = $(async () => {
+    console.log("Fetching")
+    fetch("http://localhost:9333/transform", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        prompt: inputValue.value
+      })
+    })
+      .then(res => {
+        return (res.json())
+      })
+      .then(body => {
+        console.log(body)
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  })
 
   const toastStore = useStore<ToastStore>({
     title: "",
@@ -33,29 +48,31 @@ export default component$(() => {
     <>
       <section id="main">
         <header>
-          {/* <div id="menu-btn" class={"flex"} role="button">
-          <MenuBurgerIcon />
-        </div> */}
           <h1 id="title">INCLURE</h1>
         </header>
-        {/* <div id="action" class={"flex"}>
-        <form action="#" id="text-input-form" preventdefault:submit>
-          <label for="text-input">
-            <h2>Make inclusive:</h2>
-          </label>
-          <textarea name="text-input" id="text-input" cols={30} rows={10} about="Text input to be made inclusive" placeholder="L'Homme de Néanderthal" aria-label="text-input"
-          />
-          <div id="input-buttons">
-            <button id="go" role="button" type="submit"
-              onClick$={setResultValue}>GO</button>
-            <div id="options" role="button">
-              <GearIcon />
+
+        {/* ACTION */}
+        <div id="action" class={"flex"}>
+          <form action="#" id="text-input-form" preventdefault:submit>
+            <label for="text-input">
+              <h2>Rendre inclusif:</h2>
+            </label>
+            <textarea name="text-input" id="text-input" cols={30} rows={10} about="Text input to be made inclusive" placeholder="L'Homme de Néanderthal" aria-label="text-input"
+              onInput$={(ev, el: HTMLTextAreaElement) => inputValue.value = el.value}
+            />
+            <div id="input-buttons">
+              <button id="go" role="button" type="submit"
+                onClick$={setResultValue}>GO</button>
+              {/* <div id="options" role="button">
+                <GearIcon />
+              </div> */}
             </div>
-          </div>
-          <ResultBox value={resultValue.value} />
-        </form>
-      </div> */}
-        <Waitlist
+            <ResultBox value={resultValue.value} />
+          </form>
+        </div>
+
+        {/* WAITLIST */}
+        {/* <Waitlist
           success$={() => {
             toastStore.title = "Succès";
             toastStore.message = "Merci d'avoir rejoint la liste!";
@@ -68,7 +85,9 @@ export default component$(() => {
             toastStore.type = "error";
             toastStore.active = true;
           }}
-        />
+        /> */}
+
+        {/* ABOUT */}
         <div id="about" class={"flex"}>
           <h2>À propos</h2>
           <p id="about-text">
@@ -138,10 +157,12 @@ export default component$(() => {
           </div>
         </div>
 
-        <div id="pricing" class={"flex"}>
+        {/* PRICING */}
+        {/* <div id="pricing" class={"flex"}>
           <h2>Abonnements</h2>
           <Accordion />
-        </div>
+        </div> */}
+
         <Toast store={toastStore} />
       </section>
     </>

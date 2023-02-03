@@ -39,9 +39,9 @@ export const RouterHead = component$(() => {
       <meta property="twitter:image" content="https://gwytigvyfawwmshpjsas.supabase.co/storage/v1/object/public/img-bucket/inclure.webp" />
 
       {/* Google AdSense */}
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2195304651734956"
+      {/* <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2195304651734956"
         crossOrigin="anonymous"
-        type="text/partytown" />
+        type="text/partytown" /> */}
 
       {head.meta.map((m) => (
         <meta {...m} />
