@@ -119,6 +119,25 @@ export default component$(() => {
               rows={3}
               value={resultValue.value}
             />
+            <div
+              id="feedback-buttons"
+              class={resultValue.value ? "visible" : ""}
+            >
+              <button
+                id="feedback-btn good"
+                title="Bon résultat"
+                aria-label="Bon résultat"
+              >
+                👍
+              </button>
+              <button
+                id="feedback-btn bad"
+                title="Mauvais résultat"
+                aria-label="Mauvais résultat"
+              >
+                👎
+              </button>
+            </div>
           </form>
         </div>
 

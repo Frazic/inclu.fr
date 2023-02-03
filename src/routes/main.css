@@ -9,18 +9,22 @@ section#main {
   margin: 0 auto;
 
   padding: 2rem;
+
+  --fs-h1: clamp(2rem, 2rem + 4vw, 6rem);
+  --fs-h2: clamp(1.25rem, 1rem + 0.5vw, 2rem);
+  --fs-h3: clamp(1rem, 1rem + 0.25vw, 2rem);
 }
 
 h1 {
-  font-size: clamp(2rem, 2rem + 4vw, 6rem);
+  font-size: var(--fs-h1);
 }
 
 h2 {
-  font-size: clamp(1.25rem, 1rem + 0.5vw, 2rem);
+  font-size: var(--fs-h2);
 }
 
 h3 {
-  font-size: clamp(1rem, 1rem + 0.25vw, 2rem);
+  font-size: var(--fs-h3);
 }
 
 /* HEADER */
@@ -116,6 +120,25 @@ div#options svg {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+div#feedback-buttons {
+  display: flex;
+  gap: 1em;
+  justify-content: space-evenly;
+  align-items: center;
+  visibility: hidden;
+}
+
+div#feedback-buttons.visible {
+  visibility: visible;
+}
+
+div#feedback-buttons button {
+  background-color: unset;
+  border: unset;
+  box-shadow: unset;
+  font-size: var(--fs-h2);
 }
 
 /* EXAMPLES */
