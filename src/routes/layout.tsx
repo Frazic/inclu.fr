@@ -20,7 +20,7 @@ export default component$(() => {
         </div> */}
       </header>
       <main>
-        <section style={{ "position": "relative" }}>
+        <section style={{ position: "relative" }}>
           <Slot />
         </section>
       </main>
@@ -31,11 +31,13 @@ export default component$(() => {
           l'utilisateurice de vérifier ce que propose l'IA. Inclure.net ne peut
           être tenu responsable des textes proposés par l'IA.
         </p>
-        <div class="links"
+        <div
+          class="links"
           style={{
-            "display": "flex",
-            "gap": "2em"
-          }}>
+            display: "flex",
+            gap: "2em",
+          }}
+        >
           <a href="mailto:inclure.net@gmail.com">
             <h2>Contact</h2>
           </a>

@@ -1,4 +1,10 @@
-import { $, component$, useSignal, useStore, useStyles$ } from "@builder.io/qwik";
+import {
+  $,
+  component$,
+  useSignal,
+  useStore,
+  useStyles$,
+} from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 // import { MenuBurgerIcon } from '~/components/icons/menu-burger';
 // import { GearIcon } from '~/components/icons/gear';
@@ -16,26 +22,26 @@ export default component$(() => {
   const inputValue = useSignal<string>("");
   const resultValue = useSignal<string>("");
   const setResultValue = $(async () => {
-    console.log("Fetching")
+    console.log("Fetching");
     fetch("http://localhost:9333/transform", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        prompt: inputValue.value
-      })
+        prompt: inputValue.value,
+      }),
     })
-      .then(res => {
-        return (res.json())
+      .then((res) => {
+        return res.json();
       })
-      .then(body => {
+      .then((body) => {
         resultValue.value = body.response;
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
-      })
-  })
+      });
+  });
 
   const toastStore = useStore<ToastStore>({
     title: "",
@@ -52,22 +58,47 @@ export default component$(() => {
         </header>
 
         {/* ACTION */}
-        <div id="action" class={"flex"}>
+        <div id="action">
           <form action="#" id="text-input-form" preventdefault:submit>
             <label for="text-input">
               <h2>Rendre inclusif:</h2>
             </label>
-            <textarea name="text-input" id="text-input" cols={30} rows={10} about="Text input to be made inclusive" placeholder="L'Homme de Néanderthal" aria-label="text-input"
-              onInput$={(ev, el: HTMLTextAreaElement) => inputValue.value = el.value}
+            <textarea
+              name="text-input"
+              id="text-input"
+              cols={30}
+              rows={3}
+              about="Text input to be made inclusive"
+              placeholder="L'Homme de Néanderthal"
+              aria-label="text-input"
+              onInput$={(ev, el: HTMLTextAreaElement) =>
+                (inputValue.value = el.value)
+              }
             />
             <div id="input-buttons">
-              <button id="go" role="button" type="submit"
-                onClick$={setResultValue}>GO</button>
+              <button
+                id="go"
+                role="button"
+                type="submit"
+                onClick$={setResultValue}
+              >
+                GO
+              </button>
               {/* <div id="options" role="button">
                 <GearIcon />
               </div> */}
             </div>
-            <ResultBox value={resultValue.value} />
+            <label for="result-box">
+              <h2>Résultat:</h2>
+            </label>
+            <textarea
+              name="result-box"
+              id="result-box"
+              contentEditable="false"
+              cols={30}
+              rows={3}
+              value={resultValue.value}
+            />
           </form>
         </div>
 
@@ -146,7 +177,8 @@ export default component$(() => {
             </div>
             <div class="example-item">
               <div class="example-input">
-                Malgré son handicap, elle se bat pour défendre les violences faites aux femmes.
+                Malgré son handicap, elle se bat pour défendre les violences
+                faites aux femmes.
               </div>
               <i class="fa-solid fa-arrow-down" />
               <i class="fa-solid fa-arrow-right" />

@@ -7,6 +7,7 @@
 - [x] Text input
 - [x] Submit
 - [x] Log usage in DB
+- [ ] Error handling + toasts
 - [ ] Default prompt to OpenAI
 - [x] Result
 - [ ] Styling

@@ -23,10 +23,11 @@ export default component$(() => {
       <head>
         <meta charSet="utf-8" />
         <link rel="manifest" href="/manifest.json" />
-        <QwikPartytown forward={['dataLayer.push']} />
+        <QwikPartytown forward={["dataLayer.push"]} />
         <RouterHead />
 
-        <script type="text/partytown"
+        <script
+          type="text/partytown"
           src="https://kit.fontawesome.com/f4c07cb928.js"
           crossOrigin="anonymous"
         />

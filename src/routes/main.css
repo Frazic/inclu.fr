@@ -53,12 +53,30 @@ div.flex {
 
 /* MAIN ACTION */
 
-textarea {
+div#action {
+  width: 100%;
+}
+
+form#text-input-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  align-items: stretch;
+  padding: 0 1em;
+}
+
+form#text-input-form label {
+  line-height: 1;
+}
+
+form#text-input-form textarea {
   background-color: var(--c-card-bg);
   color: var(--c-card-text);
   font-size: 0.8em;
   overflow: auto;
   padding: 1rem;
+  border: 4px solid black;
+  box-shadow: 4px 4px 0 0 black;
 }
 
 div#input-buttons {
