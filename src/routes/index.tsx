@@ -30,7 +30,7 @@ export default component$(() => {
         return (res.json())
       })
       .then(body => {
-        console.log(body)
+        resultValue.value = body.response;
       })
       .catch(err => {
         console.log(err);
