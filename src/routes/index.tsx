@@ -25,6 +25,7 @@ export default component$(() => {
 
   const serverHasBeenPinged = useSignal<boolean>(false);
   const inputValue = useSignal<string>("");
+  const inputMaxCharacters = 1000;
 
   const resultValue = useSignal<string>("");
   const resultIsLoading = useSignal<boolean>(false);
@@ -109,16 +110,22 @@ export default component$(() => {
             <label for="text-input">
               <h2>Rendre inclusif:</h2>
             </label>
-            <textarea
-              name="text-input"
-              id="text-input"
-              cols={30}
-              rows={3}
-              about="Text input to be made inclusive"
-              placeholder="L'Homme de Néanderthal"
-              aria-label="text-input"
-              onInput$={(ev, el: HTMLTextAreaElement) => handleInput$(el.value)}
-            />
+            <div id="text-input-wrapper">
+              <textarea
+                name="text-input"
+                id="text-input"
+                cols={30}
+                rows={3}
+                maxLength={inputMaxCharacters}
+                about="Text input to be made inclusive"
+                placeholder="L'Homme de Néanderthal"
+                aria-label="text-input"
+                onInput$={(ev, el: HTMLTextAreaElement) => {
+                  handleInput$(el.value);
+                }}
+              />
+              <span id="text-input-character-count">{inputMaxCharacters - inputValue.value.length}</span>
+            </div>
             <div id="input-buttons">
               <button id="go" role="button" type="submit" onClick$={sendPrompt$}>
                 GO

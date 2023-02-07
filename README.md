@@ -7,11 +7,12 @@
 - [x] Text input
 - [x] Submit
 - [x] Log usage in DB
-- [ ] Error handling + toasts
-- [ ] Default prompt to OpenAI
+- [x] Error handling + toasts
+- [x] Max length 1k chars + display
+- [x] Default prompt to OpenAI
 - [x] Result
-- [ ] Styling
-- [ ] Good / Bad answer to DB to build dataset
+- [x] Styling
+- [x] Good / Bad answer to DB to build dataset
 
 ## Improvements
 
