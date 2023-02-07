@@ -46,6 +46,9 @@ export default component$(() => {
 
   const sendPrompt$ = $(async () => {
     resultValue.value = "";
+
+    if (!inputValue.value || inputValue.value === "" || inputValue.value.length === 0) return;
+
     resultIsLoading.value = true;
 
     fetch(`${serverUrl}/transform`, {
