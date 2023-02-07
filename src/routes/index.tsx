@@ -92,7 +92,6 @@ export default component$(() => {
       }),
     })
       .then(() => {
-        console.log("TOAST");
         toastStore.type = "success";
         toastStore.title = "Bien reçu!";
         toastStore.message = "Merci pour votre retour :)"
