@@ -76,7 +76,7 @@ app.post("/transform", express.json(), function (req, res) { return __awaiter(vo
                 logger.info("Received request to /transform for prompt: " + prompt);
                 if (!prompt || prompt.length === 0 || prompt === "")
                     return [2 /*return*/];
-                preparedPrompt = "Rend ce texte inclusif en respectant ces crit\u00E8res: Utilise soit des points m\u00E9dians (Exemple: citoyen devient citoyen.ne), soit des mot-valises (Exemple: acteur devient acteurice, ils devient iels), et omet compl\u00E8tement ce qui peut \u00EAtre stigmatisant comme le handicap ou la race. \"".concat(prompt, "\"");
+                preparedPrompt = "Rend ce texte inclusif en respectant ces crit\u00E8res: Utilise soit des points m\u00E9dians (Exemple: citoyen devient citoyen⸱ne), soit des mot-valises (Exemple: acteur devient acteurice, ils devient iels), et omet compl\u00E8tement ce qui peut \u00EAtre stigmatisant comme le handicap ou la race. \"".concat(prompt, "\"");
                 tokenCount = countTokens(preparedPrompt);
                 _e.label = 1;
             case 1:
